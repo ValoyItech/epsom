@@ -1,0 +1,3027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Chef on Epsom | Restaurant, Catering & Events</title>
+  <meta
+    name="description"
+    content="The Chef on Epsom offers restaurant dining, catering, venue hire, décor, cakes, flowers, gift baskets and more in Stirling, East London."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+
+  <style>
+    :root {
+      --bg: #070707;
+      --bg-2: #0d0d0d;
+      --bg-3: #141414;
+      --panel: rgba(255,255,255,0.06);
+      --panel-2: rgba(255,255,255,0.03);
+      --text: #f7f3eb;
+      --muted: #cec2b2;
+      --line: rgba(255,255,255,0.10);
+      --gold: #d4a03d;
+      --gold-2: #f1c46c;
+      --red: #b51e23;
+      --red-2: #ec3b3b;
+      --white: #ffffff;
+      --radius: 24px;
+      --radius-lg: 34px;
+      --shadow: 0 20px 70px rgba(0,0,0,0.45);
+      --container: 1280px;
+      --ease: 0.35s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    html, body {
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(212,160,61,0.08), transparent 20%),
+        radial-gradient(circle at bottom right, rgba(181,30,35,0.07), transparent 22%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4, h5 {
+      font-family: "Playfair Display", serif;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    .container {
+      width: min(92%, var(--container));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 100px 0;
+      position: relative;
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 34px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(212,160,61,0.34);
+      background: rgba(212,160,61,0.08);
+      color: var(--gold-2);
+      text-transform: uppercase;
+      letter-spacing: 1.9px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(2.2rem, 4vw, 3.8rem);
+      margin-bottom: 14px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .glass {
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 15px 24px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      transition: var(--ease);
+      cursor: pointer;
+      min-height: 52px;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold), var(--gold-2));
+      color: #111;
+      box-shadow: 0 10px 30px rgba(212,160,61,0.24);
+    }
+
+    .btn-red {
+      background: linear-gradient(135deg, var(--red), var(--red-2));
+      color: #fff;
+      box-shadow: 0 10px 30px rgba(181,30,35,0.24);
+    }
+
+    .btn-outline {
+      background: rgba(255,255,255,0.03);
+      color: #fff;
+      border-color: rgba(255,255,255,0.14);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* NAV */
+    .navbar {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 1200;
+      background: rgba(7,7,7,0.62);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-inner {
+      min-height: 84px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  box-shadow: none;
+  width: auto;
+  height: auto;
+}
+
+.brand-mark img {
+  height: 80px;   /* desktop size */
+  width: auto;
+}
+
+@media (max-width: 640px) {
+  .brand-mark img {
+    height: 44px;
+  }
+}
+
+    .brand-text strong {
+      display: block;
+      font-size: 1.08rem;
+      line-height: 1;
+    }
+
+    .brand-text span {
+      display: block;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 11px;
+      margin-top: 5px;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: #f0e6d8;
+      font-weight: 500;
+      transition: var(--ease);
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .desktop-cta {
+      display: inline-flex;
+      margin-left: 6px;
+    }
+
+    .menu-toggle {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: none;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      color: #fff;
+      cursor: pointer;
+      transition: var(--ease);
+    }
+
+    .menu-toggle:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* MOBILE SIDEBAR */
+    .mobile-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--ease);
+      z-index: 1300;
+    }
+
+    .mobile-overlay.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-sidebar {
+      position: fixed;
+      top: 0;
+      right: -380px;
+      width: min(90vw, 360px);
+      height: 100vh;
+      z-index: 1400;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)),
+        #0c0c0c;
+      border-left: 1px solid rgba(255,255,255,0.08);
+      box-shadow: -20px 0 60px rgba(0,0,0,0.45);
+      transition: right 0.35s ease;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mobile-sidebar.show {
+      right: 0;
+    }
+
+    .mobile-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .mobile-close {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.05);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.10);
+      cursor: pointer;
+    }
+
+    .mobile-nav {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+
+    .mobile-nav a {
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      font-weight: 600;
+      transition: var(--ease);
+    }
+
+    .mobile-nav a:hover {
+      color: var(--gold);
+      border-color: rgba(212,160,61,0.30);
+    }
+
+    .mobile-socials {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: auto;
+    }
+
+    .mobile-socials a {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: var(--ease);
+    }
+
+    .mobile-socials a:hover {
+      transform: translateY(-3px);
+      color: var(--gold);
+      border-color: rgba(212,160,61,0.30);
+    }
+
+    /* HERO SLIDER */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      padding-top: 84px;
+      overflow: hidden;
+    }
+
+    .hero-slides {
+      position: relative;
+      min-height: calc(100vh - 84px);
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(1.04);
+      transition: opacity 0.9s ease, transform 1.4s ease, visibility 0.9s ease;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-slide.active {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1);
+      z-index: 2;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      filter: saturate(1.02);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.64) 40%, rgba(0,0,0,0.38) 100%),
+        radial-gradient(circle at right center, rgba(181,30,35,0.22), transparent 22%),
+        radial-gradient(circle at left top, rgba(212,160,61,0.15), transparent 20%);
+    }
+
+    .hero-slide .container {
+      position: relative;
+      z-index: 3;
+      width: 100%;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+      gap: 38px;
+      align-items: center;
+      min-height: calc(100vh - 84px);
+      padding: 40px 0 40px;
+    }
+
+    .hero-copy {
+      padding: 0 0 0 18px;
+      max-width: 780px;
+    }
+
+    .hero-copy .eyebrow {
+      margin-bottom: 18px;
+    }
+
+    .hero-copy h1 {
+      font-size: clamp(3rem, 7vw, 6.2rem);
+      margin-bottom: 18px;
+      max-width: 760px;
+      line-height: 0.92;
+    }
+
+    .hero-copy h1 span {
+      color: var(--gold);
+    }
+
+    .hero-copy p {
+      font-size: 1.08rem;
+      color: #ece1d4;
+      max-width: 680px;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-tag {
+      padding: 12px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      color: #f5ebdf;
+      backdrop-filter: blur(10px);
+      font-size: 0.92rem;
+    }
+
+    .hero-card {
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+      margin-right: 10px;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(140deg, rgba(212,160,61,0.14), transparent 28%),
+        linear-gradient(330deg, rgba(181,30,35,0.16), transparent 28%);
+      pointer-events: none;
+    }
+
+    .hero-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-card h3 {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .hero-card p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .hero-list {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .hero-list li {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed rgba(255,255,255,0.14);
+    }
+
+    .hero-list strong {
+      color: var(--gold);
+    }
+
+    .hero-bottom-rating {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      margin-top: 12px;
+    }
+
+    .hero-stars {
+      color: #ffd161;
+      letter-spacing: 3px;
+    }
+
+    .hero-controls {
+      position: absolute;
+      left: 50%;
+      bottom: 24px;
+      transform: translateX(-50%);
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.36);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .hero-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255,255,255,0.35);
+      cursor: pointer;
+      transition: var(--ease);
+    }
+
+    .hero-dot.active {
+      width: 28px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--gold), var(--red-2));
+    }
+
+    .hero-arrow {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.05);
+      color: #fff;
+      cursor: pointer;
+      transition: var(--ease);
+    }
+
+    .hero-arrow:hover {
+      color: var(--gold);
+      border-color: rgba(212,160,61,0.32);
+    }
+
+    /* ABOUT */
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .mosaic {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+    }
+
+    .img-card {
+      border-radius: 28px;
+      overflow: hidden;
+      min-height: 280px;
+      position: relative;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+      background: #111;
+    }
+
+    .img-card.tall {
+      min-height: 600px;
+    }
+
+    .img-card.small {
+      min-height: 290px;
+    }
+
+    .img-card img {
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+
+    .img-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .img-overlay {
+      position: absolute;
+      inset: auto 0 0 0;
+      padding: 20px;
+      background: linear-gradient(to top, rgba(0,0,0,0.78), transparent);
+      color: #fff;
+    }
+
+    .content-panel {
+      padding: 34px;
+      border-radius: 30px;
+    }
+
+    .content-panel h3 {
+      font-size: 2.6rem;
+      margin-bottom: 14px;
+    }
+
+    .content-panel p {
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .stat {
+      border-radius: 20px;
+      padding: 18px;
+      text-align: center;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.8rem;
+      color: var(--gold);
+      margin-bottom: 4px;
+      font-family: "Playfair Display", serif;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* SERVICES */
+    .services-bg {
+  background:
+    linear-gradient(180deg, rgba(181,30,35,0.06), rgba(0,0,0,0.95));
+}
+
+.service-card {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: var(--ease);
+}
+
+.service-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.service-body {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background: linear-gradient(180deg, transparent, rgba(0,0,0,0.9));
+}
+
+.service-card h3 {
+  margin-bottom: 6px;
+  font-size: 1.4rem;
+}
+
+.service-card p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* hover effect */
+.service-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(212,160,61,0.3);
+}
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .service-card {
+      padding: 28px 24px;
+      border-radius: 26px;
+      transition: var(--ease);
+      height: 100%;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(212,160,61,0.34);
+    }
+
+    .service-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(212,160,61,0.18), rgba(181,30,35,0.18));
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--gold-2);
+      margin-bottom: 18px;
+      font-size: 1.2rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+    }
+
+    /* MEALS */
+    .meals-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .meal-card {
+      padding: 26px 22px;
+      border-radius: 24px;
+      transition: var(--ease);
+    }
+
+    .meal-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .meal-num {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--gold), var(--red));
+      color: #fff;
+      font-weight: 800;
+      margin-bottom: 14px;
+      box-shadow: 0 12px 26px rgba(0,0,0,0.24);
+    }
+
+    .meal-card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 8px;
+    }
+
+    .meal-card p {
+      color: var(--muted);
+    }
+
+    /* MENU */
+    .menu-wrap {
+      display: grid;
+      gap: 18px;
+    }
+
+    .menu-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .menu-search-wrap {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .menu-search {
+      width: 100%;
+      min-height: 58px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.04);
+      color: #fff;
+      padding: 0 18px;
+      outline: none;
+    }
+
+    .menu-search::placeholder {
+      color: #bdaea0;
+    }
+
+    .menu-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .menu-tab {
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      color: #f5ebdd;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--ease);
+    }
+
+    .menu-tab:hover,
+    .menu-tab.active {
+      background: linear-gradient(135deg, var(--red), var(--red-2));
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .menu-card {
+      padding: 24px;
+      border-radius: 26px;
+      transition: var(--ease);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(212,160,61,0.34);
+    }
+
+    .menu-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(145deg, rgba(212,160,61,0.08), transparent 25%),
+        linear-gradient(320deg, rgba(181,30,35,0.08), transparent 24%);
+      pointer-events: none;
+    }
+
+    .menu-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .menu-card-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+
+    .menu-cat {
+      display: inline-block;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 1.7px;
+      font-size: 0.73rem;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .menu-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 2px;
+    }
+
+    .menu-price {
+      padding: 10px 14px;
+      border-radius: 14px;
+      white-space: nowrap;
+      font-weight: 800;
+      color: #111;
+      background: linear-gradient(135deg, var(--gold), var(--gold-2));
+    }
+
+    .menu-card p {
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .menu-empty {
+      grid-column: 1 / -1;
+      padding: 28px;
+      border-radius: 20px;
+      text-align: center;
+      color: var(--muted);
+      background: rgba(255,255,255,0.03);
+      border: 1px dashed rgba(255,255,255,0.12);
+    }
+
+    /* FEATURE SECTION BG */
+    .parallax-banner {
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.48) 55%, rgba(0,0,0,0.68) 100%),
+    url("images/loveit.jpg") center/cover no-repeat;
+}
+
+/* Mobile fix */
+@media (max-width: 768px) {
+  .parallax-banner {
+    background-attachment: scroll;
+    min-height: 420px;
+  }
+}
+
+    .parallax-banner .content {
+      max-width: 760px;
+      padding: 30px 0;
+    }
+
+    .parallax-banner h2 {
+      font-size: clamp(2.5rem, 5vw, 4.8rem);
+      margin-bottom: 14px;
+    }
+
+    .parallax-banner p {
+      color: #e7dacb;
+      margin-bottom: 24px;
+      font-size: 1.08rem;
+    }
+
+    /* GALLERY */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 0.8fr;
+      grid-auto-rows: 250px;
+      gap: 18px;
+    }
+
+    .gallery-item {
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+      min-height: 240px;
+    }
+
+    .gallery-item.large {
+      grid-row: span 2;
+    }
+
+    .gallery-item img {
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+
+    /* HOURS */
+    .hours-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .hours-card,
+    .map-card {
+      padding: 30px;
+      border-radius: 30px;
+    }
+
+    .hours-card h3 {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .hours-card p {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .hours-list {
+      display: grid;
+      gap: 14px;
+      margin: 18px 0 20px;
+    }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      border-bottom: 1px dashed rgba(255,255,255,0.14);
+      padding-bottom: 12px;
+    }
+
+    .hours-row strong {
+      color: var(--gold);
+    }
+
+    .map-frame {
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      min-height: 460px;
+    }
+
+    .map-frame iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 460px;
+      border: 0;
+    }
+
+    /* REVIEWS */
+    .rating-layout {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .score-card,
+    .bars-card {
+      padding: 28px;
+      border-radius: 28px;
+    }
+
+    .score-card {
+      text-align: center;
+    }
+
+    .score-num {
+      font-size: 4.6rem;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .score-stars {
+      color: #ffd161;
+      letter-spacing: 4px;
+      margin-bottom: 10px;
+    }
+
+    .score-card p {
+      color: var(--muted);
+    }
+
+    .bars {
+      display: grid;
+      gap: 14px;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 92px 1fr 44px;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .bar-row span,
+    .bar-row strong {
+      color: #f3e8da;
+    }
+
+    .bar-track {
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      display: block;
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--gold), var(--red-2));
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .review-card {
+      padding: 24px;
+      border-radius: 24px;
+      transition: var(--ease);
+    }
+
+    .review-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .review-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+
+    .review-card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 2px;
+    }
+
+    .review-card small {
+      color: #b7a897;
+    }
+
+    .review-stars {
+      color: #ffd161;
+      letter-spacing: 2px;
+      white-space: nowrap;
+    }
+
+    .review-card p {
+      color: var(--muted);
+    }
+
+    /* CONTACT */
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 24px;
+    }
+
+    .contact-card {
+      padding: 30px;
+      border-radius: 30px;
+    }
+
+    .contact-card h3 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .contact-card p {
+      color: var(--muted);
+    }
+
+    .contact-list {
+      list-style: none;
+      display: grid;
+      gap: 14px;
+      margin: 20px 0 24px;
+    }
+
+    .contact-list li {
+      padding-bottom: 12px;
+      border-bottom: 1px dashed rgba(255,255,255,0.12);
+      color: var(--muted);
+    }
+
+    .contact-list strong {
+      color: #fff;
+    }
+
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .social-links a {
+      min-width: 50px;
+      height: 50px;
+      padding: 0 16px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.10);
+      transition: var(--ease);
+    }
+
+    .social-links a:hover {
+      transform: translateY(-3px);
+      border-color: rgba(212,160,61,0.34);
+      color: var(--gold);
+    }
+
+    .contact-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .contact-images .img-card {
+      min-height: 240px;
+    }
+
+    .contact-images .wide {
+      grid-column: span 2;
+      min-height: 260px;
+    }
+
+    .footer {
+  padding: 80px 0 28px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0)),
+    #050505;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 0.9fr;
+  gap: 40px;
+  margin-bottom: 28px;
+  align-items: start;
+}
+
+.footer-brand-top {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.footer .brand-mark {
+  flex-shrink: 0;
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer .brand-mark img {
+  width: auto;
+  height: 120px;
+  object-fit: contain;
+}
+
+.footer-brand-copy h3 {
+  margin-bottom: 12px;
+  font-size: 2rem;
+}
+
+.footer-brand-copy p {
+  color: var(--muted);
+  max-width: 420px;
+  margin: 0;
+}
+
+.footer-links-group {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(120px, 1fr));
+  gap: 28px;
+}
+
+.footer-col h4 {
+  font-size: 1.3rem;
+  margin-bottom: 14px;
+}
+
+.footer-col a,
+.footer-col p {
+  display: block;
+  color: var(--muted);
+  margin-bottom: 10px;
+  transition: var(--ease);
+}
+
+.footer-col a:hover {
+  color: var(--gold);
+  transform: translateX(3px);
+}
+
+.footer-connect .footer-socials {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.footer-socials a {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 18px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  color: #bcae9d;
+  font-size: 0.95rem;
+}
+
+    /* FLOATING WHATSAPP */
+    .whatsapp-float {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 1500;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #25d366, #1fa952);
+      color: white;
+      font-size: 1.8rem;
+      box-shadow: 0 18px 40px rgba(37,211,102,0.32);
+      transition: var(--ease);
+      animation: bounceSoft 2.4s infinite;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+    }
+
+    /* REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(38px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-left {
+      transform: translateX(-38px);
+    }
+
+    .fade-right {
+      transform: translateX(38px);
+    }
+
+    .fade-left.show,
+    .fade-right.show {
+      transform: translateX(0);
+    }
+
+    /* ANIMATIONS */
+    @keyframes bounceSoft {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1180px) {
+      .hero-grid,
+      .split,
+      .hours-grid,
+      .rating-layout,
+      .contact-wrap,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid,
+      .reviews-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .meals-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy {
+        padding-left: 10px;
+      }
+
+      .hero-card {
+        margin-right: 0;
+        max-width: 620px;
+      }
+    }
+
+    @media (max-width: 920px) {
+      .nav-links,
+      .desktop-cta {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: grid;
+      }
+
+      .meals-grid,
+      .services-grid,
+      .reviews-grid,
+      .gallery-grid,
+      .footer-grid,
+      .stats,
+      .mosaic,
+      .contact-images {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-item.large {
+        grid-row: span 1;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+        padding: 24px 0 90px;
+      }
+
+      .hero-copy {
+        padding-left: 4px;
+        padding-right: 4px;
+      }
+
+      .hero-copy h1 {
+        font-size: clamp(2.6rem, 11vw, 4.8rem);
+      }
+
+      .hero-card {
+        padding: 24px;
+      }
+
+      .img-card.tall,
+      .img-card.small {
+        min-height: 280px;
+      }
+
+      .contact-images .wide {
+        grid-column: span 1;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .section {
+        padding: 84px 0;
+      }
+
+      .brand-text strong {
+        font-size: 1rem;
+      }
+
+      .brand-text span {
+        font-size: 10px;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-slides,
+      .hero-grid,
+      .hero-slide {
+        min-height: auto;
+      }
+
+      .hero-grid {
+        padding-top: 10px;
+      }
+
+      .hero-copy p {
+        font-size: 1rem;
+      }
+
+      .hero-actions,
+      .hero-tags {
+        gap: 10px;
+      }
+
+      .hero-tag {
+        font-size: 0.86rem;
+      }
+
+      .bar-row {
+        grid-template-columns: 72px 1fr 34px;
+      }
+    }
+
+    @media (max-width: 920px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 32px 0 90px;
+    min-height: calc(100vh - 84px);
+    align-items: end;
+  }
+
+  .hero-card {
+    display: none;
+  }
+
+  .hero-copy {
+    max-width: 100%;
+    padding: 0 4px;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(2.3rem, 11vw, 4rem);
+    line-height: 0.95;
+    max-width: 100%;
+  }
+
+  .hero-copy p {
+    font-size: 0.98rem;
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .hero-tags {
+    gap: 8px;
+  }
+
+  .hero-tag {
+    padding: 10px 14px;
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    min-height: 100vh;
+  }
+
+  .hero-slides {
+    min-height: calc(100vh - 84px);
+  }
+
+  .hero-slide {
+    min-height: calc(100vh - 84px);
+    align-items: center;
+  }
+
+  .hero-grid {
+    min-height: calc(100vh - 84px);
+    padding: 20px 0 88px;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+
+  .hero-copy p {
+    font-size: 0.95rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+}
+
+/* REVIEWS - CLEAN TESTIMONIAL STYLE */
+.reviews-head-center {
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto 40px;
+}
+
+.reviews-head-center .eyebrow {
+  margin-bottom: 14px;
+}
+
+.reviews-head-center h2 {
+  margin-bottom: 18px;
+}
+
+.reviews-summary {
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+}
+
+.reviews-summary-stars {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 800;
+  color: #ffd161;
+  letter-spacing: 3px;
+}
+
+.reviews-summary-stars span {
+  color: #fff;
+  letter-spacing: 0;
+  margin-left: 10px;
+}
+
+.reviews-summary p {
+  color: var(--muted);
+  font-size: 1.02rem;
+}
+
+.reviews-summary p a {
+  color: var(--gold-2);
+  font-weight: 700;
+}
+
+.reviews-summary p a:hover {
+  color: var(--gold);
+}
+
+.reviews-grid-featured {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 10px;
+}
+
+.review-card-clean {
+  padding: 28px 24px;
+  border-radius: 28px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: var(--shadow);
+  min-height: 100%;
+  transition: var(--ease);
+}
+
+.review-card-clean:hover {
+  transform: translateY(-6px);
+  border-color: rgba(212,160,61,0.28);
+}
+
+.review-card-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.review-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: #fff;
+  background: linear-gradient(135deg, rgba(212,160,61,0.95), rgba(181,30,35,0.95));
+  box-shadow: 0 10px 24px rgba(0,0,0,0.24);
+}
+
+.review-meta h3 {
+  font-size: 1.35rem;
+  margin-bottom: 4px;
+}
+
+.review-stars-line {
+  color: #ffd161;
+  letter-spacing: 2px;
+  font-size: 0.95rem;
+}
+
+.review-card-clean p {
+  color: #efe5d8;
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+
+.review-card-clean small {
+  display: block;
+  color: #bcae9d;
+  font-size: 0.92rem;
+}
+
+.reviews-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.reviews-cta .btn {
+  min-width: 240px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 920px) {
+  .reviews-grid-featured {
+    grid-template-columns: 1fr;
+  }
+
+  .review-card-clean {
+    padding: 24px 20px;
+  }
+}
+
+.reviews-section {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.85), rgba(0,0,0,0.92)),
+    url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80")
+    center/cover no-repeat;
+}
+
+.gallery-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.gallery-cta .btn {
+  min-width: 220px;
+}
+
+.meals-showcase {
+  position: relative;
+  overflow: hidden;
+  padding: 96px 0;
+  min-height: 640px;
+}
+
+.meals-showcase-bg {
+  position: absolute;
+  inset: 0;
+  background: url("https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+  transform: scale(1.03);
+}
+
+.meals-showcase-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.82), rgba(0,0,0,0.88)),
+    radial-gradient(circle at top left, rgba(212,160,61,0.14), transparent 25%),
+    radial-gradient(circle at bottom right, rgba(181,30,35,0.16), transparent 25%);
+}
+
+.meals-showcase-content {
+  position: relative;
+  z-index: 2;
+}
+
+.meals-showcase-head {
+  text-align: center;
+  margin: 0 auto 40px;
+  max-width: 700px;
+}
+
+.meals-showcase-head .eyebrow {
+  justify-content: center;
+}
+
+.meals-showcase-head p {
+  margin: 0 auto;
+}
+
+.meals-slider {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 14px;
+  align-items: center;
+}
+
+.meals-track-wrap {
+  overflow: hidden;
+}
+
+.meals-track {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.45s ease;
+  will-change: transform;
+}
+
+.meals-slide {
+  min-width: calc(33.333% - 14px);
+  border-radius: 28px;
+  overflow: hidden;
+  background: rgba(0,0,0,0.45);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.meals-slide img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.meals-slide-body {
+  padding: 20px 20px 22px;
+}
+
+
+
+.meals-slide h3 {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.meals-slide p {
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.meals-arrow {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  cursor: pointer;
+}
+
+.meals-slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.meals-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.32);
+  border: none;
+  cursor: pointer;
+}
+
+.meals-dot.active {
+  width: 28px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--gold), var(--red-2));
+}
+
+@media (max-width: 1180px) {
+  .meals-slide {
+    min-width: calc(50% - 10px);
+  }
+}
+
+@media (max-width: 768px) {
+  .meals-showcase {
+    padding: 84px 0;
+    min-height: auto;
+  }
+
+  .meals-slider {
+    grid-template-columns: 1fr;
+  }
+
+  .meals-arrow {
+    display: none;
+  }
+
+  .meals-slide {
+    min-width: 100%;
+  }
+}
+
+.menu-featured-section {
+  background:
+    linear-gradient(180deg, rgba(181,30,35,0.05), rgba(255,255,255,0.01));
+}
+
+.menu-featured-head {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 38px;
+}
+
+.menu-featured-head .eyebrow {
+  justify-content: center;
+}
+
+.menu-featured-head p {
+  margin: 0 auto;
+}
+
+.menu-featured-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.menu-featured-card {
+  padding: 26px 24px;
+  border-radius: 26px;
+  position: relative;
+  overflow: hidden;
+  transition: var(--ease);
+}
+
+.menu-featured-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(212,160,61,0.30);
+}
+
+.menu-featured-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(145deg, rgba(212,160,61,0.08), transparent 25%),
+    linear-gradient(320deg, rgba(181,30,35,0.08), transparent 24%);
+  pointer-events: none;
+}
+
+.menu-featured-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.menu-featured-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.menu-featured-tag {
+  display: inline-block;
+  margin-bottom: 6px;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 1.6px;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.menu-featured-card h3 {
+  font-size: 1.45rem;
+  margin: 0;
+}
+
+.menu-featured-price {
+  padding: 10px 14px;
+  border-radius: 14px;
+  white-space: nowrap;
+  font-weight: 800;
+  color: #111;
+  background: linear-gradient(135deg, var(--gold), var(--gold-2));
+}
+
+.menu-featured-card p {
+  color: var(--muted);
+  font-size: 0.97rem;
+}
+
+.menu-featured-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+@media (max-width: 920px) {
+  .menu-featured-grid {
+    grid-template-columns: 1fr;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a href="#home" class="brand">
+        <div class="brand-mark">
+  <img src="images/logo.png" alt="The Chef on Epsom logo" />
+</div>
+        <div class="brand-text">
+          <strong>The Chef on Epsom</strong>
+          <span>Delicious Taste</span>
+        </div>
+      </a>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#menu">Menu</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#hours">Hours</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <a href="https://www.ubereats.com/za/store/the-chef-on-epsom/mR7Wus4VUza6bVr_Cr2jdg?diningMode=PICKUP&utm_campaign=CM2508147-search-free-nonbrand-google-pas_e_all_acq_Global&utm_medium=search-free-nonbrand&utm_source=google-pas" target="_blank" class="btn btn-red desktop-cta">
+        <i class="fa-solid fa-bag-shopping"></i> Order Online
+      </a>
+
+      <button class="menu-toggle" id="openMenu" aria-label="Open menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+
+  <aside class="mobile-sidebar" id="mobileSidebar">
+    <div class="mobile-top">
+      <div class="brand">
+        <div class="brand-mark">
+  <img src="images/logo.png" alt="The Chef on Epsom logo" />
+</div>
+        <div class="brand-text">
+          <strong>The Chef on Epsom</strong>
+          <span>Delicious Taste</span>
+        </div>
+      </div>
+      <button class="mobile-close" id="closeMenu" aria-label="Close menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div class="mobile-nav">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#menu">Menu</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#hours">Hours</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+      <a href="https://www.ubereats.com/za/store/the-chef-on-epsom/mR7Wus4VUza6bVr_Cr2jdg?diningMode=PICKUP&utm_campaign=CM2508147-search-free-nonbrand-google-pas_e_all_acq_Global&utm_medium=search-free-nonbrand&utm_source=google-pas" target="_blank">Order Online</a>
+    </div>
+
+    <div class="mobile-socials">
+      <a href="https://wa.me/27764021070" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      <a href="https://www.instagram.com/thechefatepsom/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@the.chef.on.epsom" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+      <a href="mailto:thechefatepsom12@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+  </aside>
+
+  <header class="hero" id="home">
+    <div class="hero-slides" id="heroSlides">
+
+      <section class="hero-slide active">
+        <div class="hero-bg" style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80');"></div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+          <div class="hero-grid">
+            <!-- Slide 1 -->
+<div class="hero-copy">
+  <div class="eyebrow"><i class="fa-solid fa-star"></i> Restaurant • Events • Catering</div>
+  <h1>Great <span>food</span>, stylish experiences, warm hospitality.</h1>
+  <p>
+    Breakfasts, lunch, dinner, traditional meals, catering, décor, cakes, flowers and venue hire in one elegant brand.
+  </p>
+  <div class="hero-actions">
+    <a href="#menu" class="btn btn-gold"><i class="fa-solid fa-book-open"></i> Explore Menu</a>
+    <a href="https://wa.me/27764021070" target="_blank" class="btn btn-red"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
+    <a href="#contact" class="btn btn-outline"><i class="fa-solid fa-calendar-check"></i> Book an Event</a>
+  </div>
+  
+</div>
+
+            <div class="hero-card glass">
+              <div class="eyebrow">Trading Hours</div>
+              <h3>Come through for breakfast, lunch, dinner or events</h3>
+              <p>Elegant, local, flavour-packed and made for everyday dining or memorable celebrations.</p>
+              <ul class="hero-list">
+                <li><span>Mon to Fri</span><strong>7am – 6pm</strong></li>
+                <li><span>Saturday</span><strong>7am – 6pm</strong></li>
+                <li><span>Sunday</span><strong>9am – 2pm</strong></li>
+                <li><span>Public Holidays</span><strong>8am – 5pm</strong></li>
+              </ul>
+              <div class="hero-bottom-rating">
+                <div class="hero-stars">★★★★★</div>
+                <div>
+                  <strong>Local favourite</strong><br />
+                  <small style="color: var(--muted);">Known for tasty food, friendly staff and a warm atmosphere.</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="hero-slide">
+        <div class="hero-bg" style="background-image:url('https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1600&q=80');"></div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+          <div class="hero-grid">
+            <!-- Slide 2 -->
+<div class="hero-copy">
+  <div class="eyebrow"><i class="fa-solid fa-cake-candles"></i> Cakes • Flowers • Gifting</div>
+  <h1>Beautiful <span>celebrations</span> begin here.</h1>
+  <p>
+    Cakes, bouquets, hampers and event styling made for memorable moments.
+  </p>
+  <div class="hero-actions">
+    <a href="#services" class="btn btn-gold"><i class="fa-solid fa-sparkles"></i> View Services</a>
+    <a href="#contact" class="btn btn-red"><i class="fa-solid fa-phone-volume"></i> Enquire</a>
+  </div>
+  <div class="hero-tags">
+    <div class="hero-tag">Wedding Cakes</div>
+    <div class="hero-tag">Birthday Cakes</div>
+    <div class="hero-tag">Flowers</div>
+    <div class="hero-tag">Gift Hampers</div>
+  </div>
+</div>
+
+            <div class="hero-card glass">
+              <div class="eyebrow">Signature Experience</div>
+              <h3>Designed for both everyday dining and big moments</h3>
+              <p>
+                Casual breakfasts, polished lunches, full event catering, private functions and premium gifting —
+                all under one stylish brand.
+              </p>
+              <ul class="hero-list">
+                <li><span>Venue Hire</span><strong>Available</strong></li>
+                <li><span>Catering</span><strong>Corporate & Private</strong></li>
+                <li><span>Décor Styling</span><strong>Elegant Setups</strong></li>
+                <li><span>Custom Orders</span><strong>Made for You</strong></li>
+              </ul>
+              <a href="#contact" class="btn btn-outline"><i class="fa-solid fa-arrow-right"></i> Start Planning</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="hero-slide">
+        <div class="hero-bg" style="background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=80');"></div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+          <div class="hero-grid">
+            <!-- Slide 3 -->
+<div class="hero-copy">
+  <div class="eyebrow"><i class="fa-solid fa-bowl-food"></i> Meals • Drinks • Traditional Food</div>
+  <h1>Hearty breakfasts, <span>traditional favourites</span>, fresh drinks.</h1>
+  <p>
+    Smoothies, juices, burgers, steaks, pasta, milkshakes and comforting local dishes.
+  </p>
+  <div class="hero-actions">
+    <a href="#menu" class="btn btn-gold"><i class="fa-solid fa-utensils"></i> See Menu</a>
+    <a href="https://www.ubereats.com/za/store/the-chef-on-epsom/mR7Wus4VUza6bVr_Cr2jdg?diningMode=PICKUP&utm_campaign=CM2508147-search-free-nonbrand-google-pas_e_all_acq_Global&utm_medium=search-free-nonbrand&utm_source=google-pas" target="_blank" class="btn btn-red"><i class="fa-solid fa-bag-shopping"></i> Order Online</a>
+  </div>
+  <div class="hero-tags">
+    <div class="hero-tag">Breakfast</div>
+    <div class="hero-tag">Lunch</div>
+    <div class="hero-tag">Dinner</div>
+    <div class="hero-tag">Traditional Food</div>
+  </div>
+</div>
+
+            <div class="hero-card glass">
+              <div class="eyebrow">Popular Picks</div>
+              <h3>Favourites customers keep coming back for</h3>
+              <p>Browse a menu built around satisfying flavour, comfort and variety.</p>
+              <ul class="hero-list">
+                <li><span>The Chef Brekkie</span><strong>R124</strong></li>
+                <li><span>Dirty Chips</span><strong>R92</strong></li>
+                <li><span>Gourmet Burger</span><strong>R197</strong></li>
+                <li><span>Sirloin Steak</span><strong>R255</strong></li>
+              </ul>
+              <a href="#menu" class="btn btn-outline"><i class="fa-solid fa-list"></i> Full Menu</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="hero-controls">
+        <button class="hero-arrow" id="prevSlide" aria-label="Previous slide">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button class="hero-dot active" data-slide="0" aria-label="Slide 1"></button>
+        <button class="hero-dot" data-slide="1" aria-label="Slide 2"></button>
+        <button class="hero-dot" data-slide="2" aria-label="Slide 3"></button>
+        <button class="hero-arrow" id="nextSlide" aria-label="Next slide">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="section" id="about">
+    <div class="container split">
+      <div class="mosaic reveal fade-left">
+        <div class="img-card tall">
+          <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1000&q=80" alt="Elegant restaurant interior placeholder" />
+          <div class="img-overlay"><strong>Stylish hospitality & dining atmosphere</strong></div>
+        </div>
+        <div style="display:grid; gap:18px;">
+          <div class="img-card small">
+            <img src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=900&q=80" alt="Beautiful plated meal placeholder" />
+          </div>
+          <div class="img-card small">
+            <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=900&q=80" alt="Coffee and breakfast placeholder" />
+          </div>
+        </div>
+      </div>
+
+      <div class="content-panel glass reveal fade-right">
+        <div class="eyebrow">About The Chef</div>
+        <h3>A polished food, events and lifestyle brand in Stirling</h3>
+        <p>
+          The Chef on Epsom blends restaurant dining with décor, gifting, cakes, flowers,
+          venue hire and catering. The identity is elegant, bold and premium — rooted in black and white,
+          then warmed with gold and elevated with red accents.
+        </p>
+        <p>
+          This is a brand that can feel intimate and local while still looking high-end and memorable.
+          That combination should carry throughout the site: dramatic imagery, clean typography,
+          rich overlays and a sense of celebration.
+        </p>
+
+        <div class="stats">
+          <div class="stat">
+            <strong>10+</strong>
+            <span>Meal categories</span>
+          </div>
+          <div class="stat">
+            <strong>9+</strong>
+            <span>Lifestyle services</span>
+          </div>
+          <div class="stat">
+            <strong>7 Days</strong>
+            <span>Weekly trading</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section services-bg" id="services">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">Full Services</div>
+        <h2>Much more than a restaurant</h2>
+        <p>
+          The Chef on Epsom offers a complete hospitality experience: food, décor, gifting,
+          events, cakes, flowers and venue solutions for private and corporate clients.
+        </p>
+      </div>
+
+      <div class="services-grid">
+
+  <div class="service-card reveal">
+    <img src="images/service-decor.jpg" alt="Events decor" />
+    <div class="service-body">
+      <h3>Events Décor</h3>
+      <p>Elegant styling for birthdays, weddings and private functions.</p>
+    </div>
+  </div>
+
+  <div class="service-card reveal">
+    <img src="images/service-venue.jpg" alt="Venue hire" />
+    <div class="service-body">
+      <h3>Venue Hire</h3>
+      <p>Host intimate events in a warm, stylish setting.</p>
+    </div>
+  </div>
+
+  <div class="service-card reveal">
+    <img src="images/service-accessories.jpg" alt="Decor accessories" />
+    <div class="service-body">
+      <h3>Décor Accessories</h3>
+      <p>Beautiful finishing touches for your event setup.</p>
+    </div>
+  </div>
+
+  <div class="service-card reveal">
+    <img src="images/service-catering.jpg" alt="Catering" />
+    <div class="service-body">
+      <h3>Catering</h3>
+      <p>Corporate and private catering with premium presentation.</p>
+    </div>
+  </div>
+
+  <div class="service-card reveal">
+    <img src="images/service-cakes.jpg" alt="Cakes and bakes" />
+    <div class="service-body">
+      <h3>Cakes & Bakes</h3>
+      <p>Custom cakes, scones and sweet treats for every occasion.</p>
+    </div>
+  </div>
+
+  <div class="service-card reveal">
+    <img src="images/service-classes.jpg" alt="Cooking classes" />
+    <div class="service-body">
+      <h3>Cooking Classes</h3>
+      <p>Fun, social and memorable cooking experiences.</p>
+    </div>
+  </div>
+
+  <div class="service-card reveal">
+    <img src="images/service-gifts.jpg" alt="Gift baskets" />
+    <div class="service-body">
+      <h3>Gifts & Baskets</h3>
+      <p>Thoughtful hampers and curated gift selections.</p>
+    </div>
+  </div>
+
+  <div class="service-card reveal">
+    <img src="images/service-flowers.jpg" alt="Flowers" />
+    <div class="service-body">
+      <h3>Flowers & Bouquets</h3>
+      <p>Fresh arrangements for events and gifting.</p>
+    </div>
+  </div>
+
+  <div class="service-card reveal">
+    <img src="images/service-corporate.jpg" alt="Corporate services" />
+    <div class="service-body">
+      <h3>Private & Corporate</h3>
+      <p>Tailored solutions for business and personal events.</p>
+    </div>
+  </div>
+
+</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section meals-showcase">
+  <div class="meals-showcase-bg"></div>
+  <div class="meals-showcase-overlay"></div>
+
+  <div class="container meals-showcase-content">
+    <div class="section-head reveal meals-showcase-head">
+      <div class="eyebrow">Meals Made</div>
+      <h2>Food and drinks for every kind of craving</h2>
+      <p>
+        From breakfast and smoothies to mocktails and traditional dishes, discover favourites made for every mood.
+      </p>
+    </div>
+
+    <div class="meals-slider reveal">
+      <button class="meals-arrow" id="mealsPrev" aria-label="Previous meal slide">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+
+      <div class="meals-track-wrap">
+        <div class="meals-track" id="mealsTrack">
+          <article class="meals-slide glass">
+            <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=900&q=80" alt="Breakfast platter" />
+            <div class="meals-slide-body">
+              
+              <h3>Breakfasts</h3>
+              <p>Comforting starts with eggs, toast, coffee and hearty plates.</p>
+            </div>
+          </article>
+
+          <article class="meals-slide glass">
+            <img src="https://images.unsplash.com/photo-1502741338009-cac2772e18bc?auto=format&fit=crop&w=900&q=80" alt="Fresh smoothie" />
+            <div class="meals-slide-body">
+              
+              <h3>Smoothies</h3>
+              <p>Fresh fruit blends for an easy, vibrant pick-me-up.</p>
+            </div>
+          </article>
+
+          <article class="meals-slide glass">
+            <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=900&q=80" alt="Fresh juice" />
+            <div class="meals-slide-body">
+              
+              <h3>Fresh Juices</h3>
+              <p>Bright, refreshing drinks made for any time of day.</p>
+            </div>
+          </article>
+
+          <article class="meals-slide glass">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=900&q=80" alt="Lunch meal" />
+            <div class="meals-slide-body">
+              
+              <h3>Lunches</h3>
+              <p>Hearty midday meals packed with flavour and comfort.</p>
+            </div>
+          </article>
+
+          <article class="meals-slide glass">
+            <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=900&q=80" alt="Dinner plate" />
+            <div class="meals-slide-body">
+              
+              <h3>Dinners</h3>
+              <p>Rich, satisfying plates for a fuller dining moment.</p>
+            </div>
+          </article>
+
+          <article class="meals-slide glass">
+            <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=900&q=80" alt="Traditional dish" />
+            <div class="meals-slide-body">
+              
+              <h3>Traditional Food</h3>
+              <p>Homely favourites full of warmth, comfort and authenticity.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <button class="meals-arrow" id="mealsNext" aria-label="Next meal slide">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+    </div>
+
+    <div class="meals-slider-dots" id="mealsDots"></div>
+  </div>
+</section>
+
+  <section class="section menu-featured-section" id="menu">
+  <div class="container">
+    <div class="section-head reveal menu-featured-head">
+      <div class="eyebrow">Most Popular</div>
+      <h2>Guest favourites worth coming back for</h2>
+      <p>
+        A curated selection of the dishes guests love most, from hearty breakfasts to comforting mains.
+      </p>
+    </div>
+
+    <div class="menu-featured-grid">
+      <article class="menu-featured-card glass reveal">
+        <div class="menu-featured-top">
+          <div>
+            <span class="menu-featured-tag">Breakfast</span>
+            <h3>The Chef Brekkie</h3>
+          </div>
+          <div class="menu-featured-price">R 124,00</div>
+        </div>
+        <p>2 slices of toast served with 2 eggs, mushrooms, tomato, 2 rashers of bacon, 2 sausages and baked beans.</p>
+      </article>
+
+      <article class="menu-featured-card glass reveal">
+        <div class="menu-featured-top">
+          <div>
+            <span class="menu-featured-tag">Starter</span>
+            <h3>Dirty Chips</h3>
+          </div>
+          <div class="menu-featured-price">R 92,00</div>
+        </div>
+        <p>Chips served with cheese sauce and bacon bits.</p>
+      </article>
+
+      <article class="menu-featured-card glass reveal">
+        <div class="menu-featured-top">
+          <div>
+            <span class="menu-featured-tag">Lunch</span>
+            <h3>Gourmet Burger</h3>
+          </div>
+          <div class="menu-featured-price">R 197,00</div>
+        </div>
+        <p>Beef patty, fried egg, blue cheese sauce and rustic chips.</p>
+      </article>
+
+      <article class="menu-featured-card glass reveal">
+        <div class="menu-featured-top">
+          <div>
+            <span class="menu-featured-tag">Dinner</span>
+            <h3>Sirloin Steak</h3>
+          </div>
+          <div class="menu-featured-price">R 255,00</div>
+        </div>
+        <p>200g steak served with mixed veggies, mushroom sauce and a side of your choice.</p>
+      </article>
+
+      <article class="menu-featured-card glass reveal">
+        <div class="menu-featured-top">
+          <div>
+            <span class="menu-featured-tag">Traditional</span>
+            <h3>Ulusu</h3>
+          </div>
+          <div class="menu-featured-price">R 157,00</div>
+        </div>
+        <p>Ulusu served with a side of your choice and 2 veggies of the day.</p>
+      </article>
+
+      <article class="menu-featured-card glass reveal">
+        <div class="menu-featured-top">
+          <div>
+            <span class="menu-featured-tag">Pasta</span>
+            <h3>Josh Pasta</h3>
+          </div>
+          <div class="menu-featured-price">R 169,00</div>
+        </div>
+        <p>Pasta served with mushroom, bacon and chicken breast with mozzarella cheese.</p>
+      </article>
+    </div>
+
+    <div class="menu-featured-cta reveal">
+      <a href="https://www.ubereats.com/za/store/the-chef-on-epsom/mR7Wus4VUza6bVr_Cr2jdg?diningMode=PICKUP&utm_campaign=CM2508147-search-free-nonbrand-google-pas_e_all_acq_Global&utm_medium=search-free-nonbrand&utm_source=google-pas" target="_blank" class="btn btn-red">
+        <i class="fa-solid fa-bag-shopping"></i> Order Online
+      </a>
+    </div>
+  </div>
+</section>
+
+  <section class="parallax-banner">
+    <div class="container">
+      <div class="content reveal">
+        <div class="eyebrow">Signature Feel</div>
+        <h2>Luxury energy, local warmth, unforgettable moments.</h2>
+        <p>
+          This section is intentionally dramatic. It gives the brand breathing room
+          and lets the visuals do some of the storytelling between content sections.
+        </p>
+        <a href="#contact" class="btn btn-red"><i class="fa-solid fa-arrow-right"></i> Enquire Now</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="gallery">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Gallery</div>
+      <h2>Go heavy on the visual storytelling</h2>
+      <p>
+        The brand is perfect for bold photography. Use food, décor, venue, gifting and event imagery throughout the site.
+      </p>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item large reveal">
+        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1200&q=80" />
+      </div>
+      <div class="gallery-item reveal">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=80" />
+      </div>
+      <div class="gallery-item reveal">
+        <img src="https://images.unsplash.com/photo-1464306076886-da185f6a9d05?auto=format&fit=crop&w=900&q=80" />
+      </div>
+      <div class="gallery-item reveal">
+        <img src="https://images.unsplash.com/photo-1517244683847-7456b63c5969?auto=format&fit=crop&w=900&q=80" />
+      </div>
+      <div class="gallery-item reveal">
+        <img src="images/dining.png" />
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="gallery-cta reveal">
+      <a href="gallery.html" class="btn btn-outline">
+        <i class="fa-solid fa-images"></i> View Full Gallery
+      </a>
+    </div>
+
+  </div>
+</section>
+
+  <section class="section" id="hours" style="background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">Hours & Location</div>
+        <h2>Visit, order, or plan with us</h2>
+        <p>For dine-in, events, gifting, décor or catering, make it easy for customers to act quickly.</p>
+      </div>
+
+      <div class="hours-grid">
+        <div class="hours-card glass reveal fade-left">
+          <h3>Trading Hours</h3>
+          <p>Welcoming service through the week, weekends and public holidays.</p>
+
+          <div class="hours-list">
+            <div class="hours-row"><span>Monday to Friday</span><strong>7am – 6pm</strong></div>
+            <div class="hours-row"><span>Saturday</span><strong>7am – 6pm</strong></div>
+            <div class="hours-row"><span>Sunday</span><strong>9am – 2pm</strong></div>
+            <div class="hours-row"><span>Public Holidays</span><strong>8am – 5pm</strong></div>
+          </div>
+
+          <div style="display:flex; gap:12px; flex-wrap:wrap;">
+            <a href="https://wa.me/27764021070" target="_blank" class="btn btn-red"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+            <a href="https://www.ubereats.com/za/store/the-chef-on-epsom/mR7Wus4VUza6bVr_Cr2jdg?diningMode=PICKUP&utm_campaign=CM2508147-search-free-nonbrand-google-pas_e_all_acq_Global&utm_medium=search-free-nonbrand&utm_source=google-pas" target="_blank" class="btn btn-gold"><i class="fa-solid fa-bag-shopping"></i> Uber Eats</a>
+          </div>
+        </div>
+
+        <div class="map-card glass reveal fade-right">
+          <div class="map-frame">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2958.6252088346073!2d27.91837827529126!3d-32.99250737420569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e66e1d505c71b47%3A0x4cb4b13a3b4275c7!2sThe%20Chef%20on%20Epsom!5e1!3m2!1sen!2sza!4v1775135224188!5m2!1sen!2sza"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reviews-section" id="reviews">
+  <div class="container">
+    <div class="section-head reveal reviews-head-center">
+      <div class="eyebrow">Testimonials</div>
+      <h2>What Our Guests Say</h2>
+
+      <div class="reviews-summary">
+        <div class="reviews-summary-stars">★★★★★ <span>4.9</span></div>
+        <p>
+          Based on guest feedback for food, service and atmosphere.
+          <a href="https://maps.app.goo.gl/PgNq59V5QNZmjCV1A" target="_blank" rel="noopener">
+            Read all reviews
+          </a>
+        </p>
+      </div>
+    </div>
+
+    <div class="reviews-grid reviews-grid-featured">
+      <article class="review-card review-card-clean glass reveal">
+        <div class="review-card-top">
+          <div class="review-avatar">B</div>
+          <div class="review-meta">
+            <h3>Bianca Van Zijl</h3>
+            <div class="review-stars-line">★★★★★</div>
+          </div>
+        </div>
+        <p>
+          “A gem in the heart of Stirling, great atmosphere and amazing staff.”
+        </p>
+        <small>Local Guide • 4 months ago</small>
+      </article>
+
+      <article class="review-card review-card-clean glass reveal">
+        <div class="review-card-top">
+          <div class="review-avatar">N</div>
+          <div class="review-meta">
+            <h3>Nomsa Siqhaza</h3>
+            <div class="review-stars-line">★★★★★</div>
+          </div>
+        </div>
+        <p>
+          “Tasty food, excellent service and friendly staff.”
+        </p>
+        <small>Guest review • 2 months ago</small>
+      </article>
+
+      <article class="review-card review-card-clean glass reveal">
+        <div class="review-card-top">
+          <div class="review-avatar">E</div>
+          <div class="review-meta">
+            <h3>Esteri Msindo</h3>
+            <div class="review-stars-line">★★★★★</div>
+          </div>
+        </div>
+        <p>
+          “Our family had a wonderful experience at The Chef.”
+        </p>
+        <small>Family dining • 1 year ago</small>
+      </article>
+    </div>
+
+    <div class="reviews-cta reveal">
+      <a href="https://maps.app.goo.gl/PgNq59V5QNZmjCV1A" target="_blank" rel="noopener" class="btn btn-outline">
+        <i class="fa-brands fa-google"></i> Read More Reviews
+      </a>
+    </div>
+  </div>
+</section>
+
+  <section class="section" id="contact" style="background: linear-gradient(180deg, rgba(181,30,35,0.06), rgba(255,255,255,0.01));">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">Contact</div>
+        <h2>Make it easy to book, message or follow</h2>
+        <p>Customers should be able to move from inspiration to action without friction.</p>
+      </div>
+
+      <div class="contact-wrap">
+        <div class="contact-card glass reveal fade-left">
+          <h3>Get in touch</h3>
+          <p>Reach out for bookings, catering, décor, cakes, flowers, classes, gifting and more.</p>
+
+          <ul class="contact-list">
+            <li><strong>WhatsApp:</strong> +27 76 402 1070</li>
+            <li><strong>Phone:</strong> +27 64 295 4610</li>
+            <li><strong>Email:</strong> thechefatepsom12@gmail.com</li>
+            <li><strong>Address:</strong> 5 A Epsom Road, Stirling, East London, South Africa</li>
+          </ul>
+
+          <div class="social-links">
+            <a href="https://wa.me/27764021070" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+            <a href="https://www.instagram.com/thechefatepsom/" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
+            <a href="https://www.tiktok.com/@the.chef.on.epsom" target="_blank"><i class="fa-brands fa-tiktok"></i> TikTok</a>
+            <a href="mailto:thechefatepsom12@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
+          </div>
+        </div>
+
+        <div class="contact-images reveal fade-right">
+          <div class="img-card">
+            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80" alt="Dining room placeholder" />
+          </div>
+          <div class="img-card">
+            <img src="images/afro.png" alt="Fresh meal placeholder" />
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-brand-top">
+          <div class="brand-mark">
+            <img src="images/logo.png" alt="The Chef on Epsom logo" />
+          </div>
+
+          <div class="footer-brand-copy">
+            <h3>The Chef on Epsom</h3>
+            <p>
+              Elegant dining, memorable events, catering, décor, cakes, flowers, gifting and warm hospitality in Stirling, East London.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-links-group">
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#menu">Menu</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>More</h4>
+          <a href="#gallery">Gallery</a>
+          <a href="#hours">Hours</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+
+      <div class="footer-col footer-connect">
+        <h4>Connect</h4>
+        <p>+27 76 402 1070</p>
+        <p>thechefatepsom12@gmail.com</p>
+        <div class="footer-socials">
+          <a href="https://wa.me/27764021070" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="https://www.instagram.com/thechefatepsom/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/@the.chef.on.epsom" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://www.ubereats.com/za/store/the-chef-on-epsom/mR7Wus4VUza6bVr_Cr2jdg?diningMode=PICKUP&utm_campaign=CM2508147-search-free-nonbrand-google-pas_e_all_acq_Global&utm_medium=search-free-nonbrand&utm_source=google-pas" target="_blank" aria-label="Uber Eats"><i class="fa-solid fa-bag-shopping"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 The Chef on Epsom. All rights reserved.</span>
+      <span>Black • White • Gold • Red</span>
+    </div>
+  </div>
+</footer>
+
+  <a class="whatsapp-float" href="https://wa.me/27764021070" target="_blank" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <script>
+    /* HERO SLIDER */
+    const heroSlides = document.querySelectorAll(".hero-slide");
+    const heroDots = document.querySelectorAll(".hero-dot");
+    const nextSlideBtn = document.getElementById("nextSlide");
+    const prevSlideBtn = document.getElementById("prevSlide");
+    let currentSlide = 0;
+    let sliderInterval;
+
+    function showSlide(index) {
+      heroSlides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === index);
+      });
+
+      heroDots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === index);
+      });
+
+      currentSlide = index;
+    }
+
+    function nextSlide() {
+      let next = currentSlide + 1;
+      if (next >= heroSlides.length) next = 0;
+      showSlide(next);
+    }
+
+    function prevSlide() {
+      let prev = currentSlide - 1;
+      if (prev < 0) prev = heroSlides.length - 1;
+      showSlide(prev);
+    }
+
+    function startSlider() {
+      sliderInterval = setInterval(nextSlide, 5500);
+    }
+
+    function resetSlider() {
+      clearInterval(sliderInterval);
+      startSlider();
+    }
+
+    nextSlideBtn.addEventListener("click", () => {
+      nextSlide();
+      resetSlider();
+    });
+
+    prevSlideBtn.addEventListener("click", () => {
+      prevSlide();
+      resetSlider();
+    });
+
+    heroDots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        showSlide(index);
+        resetSlider();
+      });
+    });
+
+    startSlider();
+
+    /* MOBILE MENU */
+    const openMenu = document.getElementById("openMenu");
+    const closeMenu = document.getElementById("closeMenu");
+    const mobileSidebar = document.getElementById("mobileSidebar");
+    const mobileOverlay = document.getElementById("mobileOverlay");
+    const mobileLinks = document.querySelectorAll(".mobile-nav a");
+
+    function openSidebar() {
+      mobileSidebar.classList.add("show");
+      mobileOverlay.classList.add("show");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeSidebar() {
+      mobileSidebar.classList.remove("show");
+      mobileOverlay.classList.remove("show");
+      document.body.style.overflow = "";
+    }
+
+    openMenu.addEventListener("click", openSidebar);
+    closeMenu.addEventListener("click", closeSidebar);
+    mobileOverlay.addEventListener("click", closeSidebar);
+    mobileLinks.forEach(link => link.addEventListener("click", closeSidebar));
+
+    
+    /* REVEAL */
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, { threshold: 0.15 });
+
+    revealElements.forEach(el => observer.observe(el));
+  </script>
+  
+
+
+  <script>
+  const mealsTrack = document.getElementById("mealsTrack");
+  const mealsPrev = document.getElementById("mealsPrev");
+  const mealsNext = document.getElementById("mealsNext");
+  const mealsDotsWrap = document.getElementById("mealsDots");
+  const mealsSlides = document.querySelectorAll(".meals-slide");
+
+  if (mealsTrack && mealsPrev && mealsNext && mealsDotsWrap && mealsSlides.length) {
+    let mealsIndex = 0;
+    let mealsInterval;
+
+    function getMealsPerView() {
+      if (window.innerWidth <= 768) return 1;
+      if (window.innerWidth <= 1180) return 2;
+      return 3;
+    }
+
+    function getMealsMaxIndex() {
+      return Math.max(0, mealsSlides.length - getMealsPerView());
+    }
+
+    function renderMealsDots() {
+      const total = getMealsMaxIndex() + 1;
+      mealsDotsWrap.innerHTML = "";
+
+      for (let i = 0; i < total; i++) {
+        const dot = document.createElement("button");
+        dot.className = "meals-dot" + (i === mealsIndex ? " active" : "");
+        dot.setAttribute("aria-label", `Go to meals slide ${i + 1}`);
+        dot.addEventListener("click", () => {
+          mealsIndex = i;
+          updateMealsSlider();
+          resetMealsSlider();
+        });
+        mealsDotsWrap.appendChild(dot);
+      }
+    }
+
+    function updateMealsSlider() {
+      const firstSlide = mealsSlides[0];
+      if (!firstSlide) return;
+
+      const slideWidth = firstSlide.getBoundingClientRect().width;
+      const gap = 20;
+      mealsTrack.style.transform = `translateX(-${mealsIndex * (slideWidth + gap)}px)`;
+
+      document.querySelectorAll(".meals-dot").forEach((dot, i) => {
+        dot.classList.toggle("active", i === mealsIndex);
+      });
+    }
+
+    function nextMealsSlide() {
+      mealsIndex = mealsIndex >= getMealsMaxIndex() ? 0 : mealsIndex + 1;
+      updateMealsSlider();
+    }
+
+    function prevMealsSlide() {
+      mealsIndex = mealsIndex <= 0 ? getMealsMaxIndex() : mealsIndex - 1;
+      updateMealsSlider();
+    }
+
+    function startMealsSlider() {
+      mealsInterval = setInterval(nextMealsSlide, 4000);
+    }
+
+    function resetMealsSlider() {
+      clearInterval(mealsInterval);
+      startMealsSlider();
+    }
+
+    mealsNext.addEventListener("click", () => {
+      nextMealsSlide();
+      resetMealsSlider();
+    });
+
+    mealsPrev.addEventListener("click", () => {
+      prevMealsSlide();
+      resetMealsSlider();
+    });
+
+    window.addEventListener("resize", () => {
+      mealsIndex = Math.min(mealsIndex, getMealsMaxIndex());
+      renderMealsDots();
+      updateMealsSlider();
+    });
+
+    mealsTrack.addEventListener("mouseenter", () => clearInterval(mealsInterval));
+    mealsTrack.addEventListener("mouseleave", startMealsSlider);
+
+    renderMealsDots();
+    updateMealsSlider();
+    startMealsSlider();
+  }
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery | The Chef on Epsom</title>
+  <meta name="description" content="Explore our gallery of food, events, décor, and behind-the-scenes moments at The Chef on Epsom." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <style>
+    :root {
+      --bg: #070707;
+      --bg-2: #0d0d0d;
+      --bg-3: #141414;
+      --panel: rgba(255,255,255,0.06);
+      --panel-2: rgba(255,255,255,0.03);
+      --text: #f7f3eb;
+      --muted: #cec2b2;
+      --line: rgba(255,255,255,0.10);
+      --gold: #d4a03d;
+      --gold-2: #f1c46c;
+      --red: #b51e23;
+      --red-2: #ec3b3b;
+      --white: #ffffff;
+      --radius: 24px;
+      --radius-lg: 34px;
+      --shadow: 0 20px 70px rgba(0,0,0,0.45);
+      --container: 1280px;
+      --ease: 0.35s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    html, body {
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(212,160,61,0.08), transparent 20%),
+        radial-gradient(circle at bottom right, rgba(181,30,35,0.07), transparent 22%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4, h5 {
+      font-family: "Playfair Display", serif;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .container {
+      width: min(92%, var(--container));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 100px 0;
+      position: relative;
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 34px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(212,160,61,0.34);
+      background: rgba(212,160,61,0.08);
+      color: var(--gold-2);
+      text-transform: uppercase;
+      letter-spacing: 1.9px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(2.2rem, 4vw, 3.8rem);
+      margin-bottom: 14px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .glass {
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 15px 24px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      transition: var(--ease);
+      cursor: pointer;
+      min-height: 52px;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold), var(--gold-2));
+      color: #111;
+      box-shadow: 0 10px 30px rgba(212,160,61,0.24);
+    }
+
+    .btn-red {
+      background: linear-gradient(135deg, var(--red), var(--red-2));
+      color: #fff;
+      box-shadow: 0 10px 30px rgba(181,30,35,0.24);
+    }
+
+    .btn-outline {
+      background: rgba(255,255,255,0.03);
+      color: #fff;
+      border-color: rgba(255,255,255,0.14);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* NAV */
+    .navbar {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 1200;
+      background: rgba(7,7,7,0.62);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-inner {
+      min-height: 84px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-mark {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: none;
+      box-shadow: none;
+      width: auto;
+      height: auto;
+    }
+
+    .brand-mark img {
+      height: 80px;
+      width: auto;
+    }
+
+    @media (max-width: 640px) {
+      .brand-mark img {
+        height: 44px;
+      }
+    }
+
+    .brand-text strong {
+      display: block;
+      font-size: 1.08rem;
+      line-height: 1;
+    }
+
+    .brand-text span {
+      display: block;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 11px;
+      margin-top: 5px;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: #f0e6d8;
+      font-weight: 500;
+      transition: var(--ease);
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .desktop-cta {
+      display: inline-flex;
+      margin-left: 6px;
+    }
+
+    .menu-toggle {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: none;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      color: #fff;
+      cursor: pointer;
+      transition: var(--ease);
+    }
+
+    .menu-toggle:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* MOBILE SIDEBAR */
+    .mobile-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--ease);
+      z-index: 1300;
+    }
+
+    .mobile-overlay.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-sidebar {
+      position: fixed;
+      top: 0;
+      right: -380px;
+      width: min(90vw, 360px);
+      height: 100vh;
+      z-index: 1400;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)),
+        #0c0c0c;
+      border-left: 1px solid rgba(255,255,255,0.08);
+      box-shadow: -20px 0 60px rgba(0,0,0,0.45);
+      transition: right 0.35s ease;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mobile-sidebar.show {
+      right: 0;
+    }
+
+    .mobile-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .mobile-close {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.05);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.10);
+      cursor: pointer;
+    }
+
+    .mobile-nav {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+
+    .mobile-nav a {
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      font-weight: 600;
+      transition: var(--ease);
+    }
+
+    .mobile-nav a:hover {
+      color: var(--gold);
+      border-color: rgba(212,160,61,0.30);
+    }
+
+    .mobile-socials {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: auto;
+    }
+
+    .mobile-socials a {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: var(--ease);
+    }
+
+    .mobile-socials a:hover {
+      transform: translateY(-3px);
+      color: var(--gold);
+      border-color: rgba(212,160,61,0.30);
+    }
+
+    /* HERO */
+    .page-hero {
+      position: relative;
+      min-height: 50vh;
+      padding-top: 84px;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.64) 40%, rgba(0,0,0,0.38) 100%),
+        radial-gradient(circle at right center, rgba(181,30,35,0.22), transparent 22%),
+        radial-gradient(circle at left top, rgba(212,160,61,0.15), transparent 20%),
+        url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    }
+
+    .page-hero-content {
+      padding: 60px 0;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      margin-bottom: 16px;
+    }
+
+    .page-hero p {
+      color: var(--muted);
+      font-size: 1.1rem;
+      max-width: 600px;
+    }
+
+    /* GALLERY GRIDS */
+    .gallery-section {
+      padding: 80px 0;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .gallery-item {
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+      min-height: 280px;
+      cursor: pointer;
+      transition: var(--ease);
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-6px);
+      border-color: rgba(212,160,61,0.3);
+    }
+
+    .gallery-item.large {
+      grid-column: span 2;
+      grid-row: span 2;
+      min-height: 580px;
+    }
+
+    .gallery-item.tall {
+      grid-row: span 2;
+      min-height: 580px;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: auto 0 0 0;
+      padding: 24px;
+      background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+      color: #fff;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .gallery-overlay h4 {
+      font-size: 1.3rem;
+      margin-bottom: 4px;
+    }
+
+    .gallery-overlay p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* SERVICES GALLERY */
+    .services-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .service-gallery-card {
+      position: relative;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      min-height: 320px;
+      transition: var(--ease);
+    }
+
+    .service-gallery-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(212,160,61,0.3);
+    }
+
+    .service-gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+      transition: transform 0.8s ease;
+    }
+
+    .service-gallery-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .service-gallery-body {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 24px;
+      background: linear-gradient(180deg, transparent, rgba(0,0,0,0.9));
+    }
+
+    .service-gallery-body h3 {
+      font-size: 1.5rem;
+      margin-bottom: 6px;
+    }
+
+    .service-gallery-body p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* TIKTOK SECTION */
+    .tiktok-section {
+      background: linear-gradient(180deg, rgba(181,30,35,0.06), rgba(255,255,255,0.01));
+      padding: 80px 0;
+    }
+
+    .tiktok-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .tiktok-content h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 16px;
+    }
+
+    .tiktok-content p {
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .tiktok-embed-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .tiktok-embed-container blockquote {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    /* SOCIALS SECTION */
+    .socials-section {
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .socials-grid {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    .social-card {
+      padding: 32px 28px;
+      border-radius: 24px;
+      min-width: 160px;
+      transition: var(--ease);
+      text-align: center;
+    }
+
+    .social-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(212,160,61,0.3);
+    }
+
+    .social-card i {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .social-card.whatsapp i { color: #25d366; }
+    .social-card.instagram i { 
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .social-card.tiktok i { color: #fff; }
+    .social-card.email i { color: var(--gold); }
+    .social-card.uber i { color: #06c167; }
+
+    .social-card h4 {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+
+    .social-card span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* FOOD SHOWCASE */
+    .food-showcase {
+      padding: 80px 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.9), rgba(0,0,0,0.95));
+    }
+
+    .food-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .food-item {
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: var(--ease);
+    }
+
+    .food-item:hover {
+      transform: translateY(-5px);
+      border-color: rgba(212,160,61,0.3);
+    }
+
+    .food-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .food-item-body {
+      padding: 18px;
+    }
+
+    .food-item h4 {
+      font-size: 1.1rem;
+      margin-bottom: 4px;
+    }
+
+    .food-item p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* FOOTER */
+    .footer {
+      padding: 80px 0 28px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0)),
+        #050505;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 0.9fr;
+      gap: 40px;
+      margin-bottom: 28px;
+      align-items: start;
+    }
+
+    .footer-brand-top {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .footer .brand-mark {
+      flex-shrink: 0;
+      width: auto;
+      height: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footer .brand-mark img {
+      width: auto;
+      height: 120px;
+      object-fit: contain;
+    }
+
+    .footer-brand-copy h3 {
+      margin-bottom: 12px;
+      font-size: 2rem;
+    }
+
+    .footer-brand-copy p {
+      color: var(--muted);
+      max-width: 420px;
+      margin: 0;
+    }
+
+    .footer-links-group {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(120px, 1fr));
+      gap: 28px;
+    }
+
+    .footer-col h4 {
+      font-size: 1.3rem;
+      margin-bottom: 14px;
+    }
+
+    .footer-col a,
+    .footer-col p {
+      display: block;
+      color: var(--muted);
+      margin-bottom: 10px;
+      transition: var(--ease);
+    }
+
+    .footer-col a:hover {
+      color: var(--gold);
+      transform: translateX(3px);
+    }
+
+    .footer-connect .footer-socials {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .footer-socials a {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: var(--ease);
+    }
+
+    .footer-socials a:hover {
+      transform: translateY(-3px);
+      color: var(--gold);
+      border-color: rgba(212,160,61,0.3);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 18px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      color: #bcae9d;
+      font-size: 0.95rem;
+    }
+
+    /* FLOATING WHATSAPP */
+    .whatsapp-float {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 1500;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #25d366, #1fa952);
+      color: white;
+      font-size: 1.8rem;
+      box-shadow: 0 18px 40px rgba(37,211,102,0.32);
+      transition: var(--ease);
+      animation: bounceSoft 2.4s infinite;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+    }
+
+    /* REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(38px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes bounceSoft {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    /* LIGHTBOX */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.95);
+      z-index: 2000;
+      display: none;
+      place-items: center;
+      padding: 20px;
+    }
+
+    .lightbox.show {
+      display: grid;
+    }
+
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 12px;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: var(--ease);
+    }
+
+    .lightbox-close:hover {
+      background: var(--red);
+      border-color: var(--red);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1180px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .gallery-item.large {
+        grid-column: span 2;
+        grid-row: span 1;
+        min-height: 280px;
+      }
+      .gallery-item.tall {
+        grid-row: span 1;
+        min-height: 280px;
+      }
+      .services-gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .tiktok-wrapper {
+        grid-template-columns: 1fr;
+      }
+      .food-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 920px) {
+      .nav-links,
+      .desktop-cta {
+        display: none;
+      }
+      .menu-toggle {
+        display: grid;
+      }
+      .gallery-grid,
+      .services-gallery {
+        grid-template-columns: 1fr;
+      }
+      .gallery-item.large {
+        grid-column: span 1;
+      }
+      .food-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .section {
+        padding: 60px 0;
+      }
+      .social-card {
+        min-width: 140px;
+        padding: 24px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand">
+        <div class="brand-mark">
+          <img src="images/logo.png" alt="The Chef on Epsom logo" />
+        </div>
+        <div class="brand-text">
+          <strong>The Chef on Epsom</strong>
+          <span>Delicious Taste</span>
+        </div>
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html#about">About</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#menu">Menu</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="index.html#hours">Hours</a>
+        <a href="index.html#reviews">Reviews</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+
+      <a href="https://www.ubereats.com/za/store/the-chef-on-epsom/mR7Wus4VUza6bVr_Cr2jdg?diningMode=PICKUP&utm_campaign=CM2508147-search-free-nonbrand-google-pas_e_all_acq_Global&utm_medium=search-free-nonbrand&utm_source=google-pas" target="_blank" class="btn btn-red desktop-cta">
+        <i class="fa-solid fa-bag-shopping"></i> Order Online
+      </a>
+
+      <button class="menu-toggle" id="openMenu" aria-label="Open menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Sidebar -->
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+  <aside class="mobile-sidebar" id="mobileSidebar">
+    <div class="mobile-top">
+      <div class="brand">
+        <div class="brand-mark">
+          <img src="images/logo.png" alt="The Chef on Epsom logo" />
+        </div>
+        <div class="brand-text">
+          <strong>The Chef on Epsom</strong>
+          <span>Delicious Taste</span>
+        </div>
+      </div>
+      <button class="mobile-close" id="closeMenu" aria-label="Close menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div class="mobile-nav">
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#menu">Menu</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="index.html#hours">Hours</a>
+      <a href="index.html#reviews">Reviews</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="https://www.ubereats.com/za/store/the-chef-on-epsom/mR7Wus4VUza6bVr_Cr2jdg?diningMode=PICKUP&utm_campaign=CM2508147-search-free-nonbrand-google-pas_e_all_acq_Global&utm_medium=search-free-nonbrand&utm_source=google-pas" target="_blank">Order Online</a>
+    </div>
+
+    <div class="mobile-socials">
+      <a href="https://wa.me/27764021070" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      <a href="https://www.instagram.com/thechefatepsom/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@the.chef.on.epsom" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+      <a href="mailto:thechefatepsom12@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+  </aside>
+
+  <!-- Page Hero -->
+  <header class="page-hero">
+    <div class="container page-hero-content">
+      <div class="eyebrow"><i class="fa-solid fa-images"></i> Visual Journey</div>
+      <h1>Our Gallery</h1>
+      <p>Explore our world of culinary excellence, elegant events, and unforgettable moments at The Chef on Epsom.</p>
+    </div>
+  </header>
+
+  <!-- Services Gallery -->
+  <section class="gallery-section">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">What We Offer</div>
+        <h2>Services & Experiences</h2>
+        <p>From décor to dining, cakes to catering — see what makes us special.</p>
+      </div>
+
+      <div class="services-gallery">
+        <div class="service-gallery-card reveal" onclick="openLightbox('images/service-decor.jpg', 'Events Décor')">
+          <img src="images/service-decor.jpg" alt="Events décor" />
+          <div class="service-gallery-body">
+            <h3>Events Décor</h3>
+            <p>Elegant styling for birthdays, weddings and private functions</p>
+          </div>
+        </div>
+
+        <div class="service-gallery-card reveal" onclick="openLightbox('images/service-venue.jpg', 'Venue Hire')">
+          <img src="images/service-venue.jpg" alt="Venue hire" />
+          <div class="service-gallery-body">
+            <h3>Venue Hire</h3>
+            <p>Host intimate events in a warm, stylish setting</p>
+          </div>
+        </div>
+
+        <div class="service-gallery-card reveal" onclick="openLightbox('images/service-accessories.jpg', 'Décor Accessories')">
+          <img src="images/service-accessories.jpg" alt="Décor accessories" />
+          <div class="service-gallery-body">
+            <h3>Décor Accessories</h3>
+            <p>Beautiful finishing touches for your event setup</p>
+          </div>
+        </div>
+
+        <div class="service-gallery-card reveal" onclick="openLightbox('images/service-catering.jpg', 'Catering')">
+          <img src="images/service-catering.jpg" alt="Catering" />
+          <div class="service-gallery-body">
+            <h3>Catering</h3>
+            <p>Corporate and private catering with premium presentation</p>
+          </div>
+        </div>
+
+        <div class="service-gallery-card reveal" onclick="openLightbox('images/service-cakes.jpg', 'Cakes & Bakes')">
+          <img src="images/service-cakes.jpg" alt="Cakes and bakes" />
+          <div class="service-gallery-body">
+            <h3>Cakes & Bakes</h3>
+            <p>Custom cakes, scones and sweet treats for every occasion</p>
+          </div>
+        </div>
+
+        <div class="service-gallery-card reveal" onclick="openLightbox('images/service-classes.jpg', 'Cooking Classes')">
+          <img src="images/service-classes.jpg" alt="Cooking classes" />
+          <div class="service-gallery-body">
+            <h3>Cooking Classes</h3>
+            <p>Fun, social and memorable cooking experiences</p>
+          </div>
+        </div>
+
+        <div class="service-gallery-card reveal" onclick="openLightbox('images/service-gifts.jpg', 'Gifts & Baskets')">
+          <img src="images/service-gifts.jpg" alt="Gift baskets" />
+          <div class="service-gallery-body">
+            <h3>Gifts & Baskets</h3>
+            <p>Thoughtful hampers and curated gift selections</p>
+          </div>
+        </div>
+
+        <div class="service-gallery-card reveal" onclick="openLightbox('images/service-flowers.jpg', 'Flowers & Bouquets')">
+          <img src="images/service-flowers.jpg" alt="Flowers" />
+          <div class="service-gallery-body">
+            <h3>Flowers & Bouquets</h3>
+            <p>Fresh arrangements for events and gifting</p>
+          </div>
+        </div>
+
+        <div class="service-gallery-card reveal" onclick="openLightbox('images/service-corporate.jpg', 'Private & Corporate')">
+          <img src="images/service-corporate.jpg" alt="Corporate services" />
+          <div class="service-gallery-body">
+            <h3>Private & Corporate</h3>
+            <p>Tailored solutions for business and personal events</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Gallery Grid -->
+  <section class="gallery-section" style="background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">Moments Captured</div>
+        <h2>Restaurant & Events</h2>
+        <p>A visual story of our space, our food, and our celebrations.</p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item large reveal" onclick="openLightbox('https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1200&q=80', 'Restaurant Atmosphere')">
+          <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1200&q=80" alt="Restaurant atmosphere" />
+          <div class="gallery-overlay">
+            <h4>Restaurant Atmosphere</h4>
+            <p>Warm, elegant dining experience</p>
+          </div>
+        </div>
+
+        <div class="gallery-item reveal" onclick="openLightbox('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=80', 'Gourmet Plating')">
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=80" alt="Gourmet plating" />
+          <div class="gallery-overlay">
+            <h4>Gourmet Plating</h4>
+            <p>Art on a plate</p>
+          </div>
+        </div>
+
+        <div class="gallery-item reveal" onclick="openLightbox('https://images.unsplash.com/photo-1464306076886-da185f6a9d05?auto=format&fit=crop&w=900&q=80', 'Fresh Ingredients')">
+          <img src="https://images.unsplash.com/photo-1464306076886-da185f6a9d05?auto=format&fit=crop&w=900&q=80" alt="Fresh ingredients" />
+          <div class="gallery-overlay">
+            <h4>Fresh Ingredients</h4>
+            <p>Quality in every dish</p>
+          </div>
+        </div>
+
+        <div class="gallery-item reveal" onclick="openLightbox('https://images.unsplash.com/photo-1517244683847-7456b63c5969?auto=format&fit=crop&w=900&q=80', 'Event Setup')">
+          <img src="https://images.unsplash.com/photo-1517244683847-7456b63c5969?auto=format&fit=crop&w=900&q=80" alt="Event setup" />
+          <div class="gallery-overlay">
+            <h4>Event Setup</h4>
+            <p>Memorable celebrations</p>
+          </div>
+        </div>
+
+        <div class="gallery-item reveal" onclick="openLightbox('images/dining.png', 'Dining Experience')">
+          <img src="images/dining.png" alt="Dining experience" />
+          <div class="gallery-overlay">
+            <h4>Dining Experience</h4>
+            <p>Every meal matters</p>
+          </div>
+        </div>
+
+        <div class="gallery-item tall reveal" onclick="openLightbox('https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1000&q=80', 'Elegant Interior')">
+          <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1000&q=80" alt="Elegant interior" />
+          <div class="gallery-overlay">
+            <h4>Elegant Interior</h4>
+            <p>Stylish hospitality atmosphere</p>
+          </div>
+        </div>
+
+        <div class="gallery-item reveal" onclick="openLightbox('https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=900&q=80', 'Beautiful Plating')">
+          <img src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=900&q=80" alt="Beautiful plating" />
+          <div class="gallery-overlay">
+            <h4>Beautiful Plating</h4>
+            <p>Attention to detail</p>
+          </div>
+        </div>
+
+        <div class="gallery-item reveal" onclick="openLightbox('https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=900&q=80', 'Coffee & Breakfast')">
+          <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=900&q=80" alt="Coffee and breakfast" />
+          <div class="gallery-overlay">
+            <h4>Coffee & Breakfast</h4>
+            <p>Perfect starts</p>
+          </div>
+        </div>
+
+        <div class="gallery-item reveal" onclick="openLightbox('images/afro.png', 'African Cuisine')">
+          <img src="images/afro.png" alt="African cuisine" />
+          <div class="gallery-overlay">
+            <h4>African Cuisine</h4>
+            <p>Traditional flavours</p>
+          </div>
+        </div>
+
+        <div class="gallery-item reveal" onclick="openLightbox('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80', 'Fine Dining')">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80" alt="Fine dining" />
+          <div class="gallery-overlay">
+            <h4>Fine Dining</h4>
+            <p>Exquisite experiences</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Food Categories -->
+  <section class="food-showcase">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">Our Menu</div>
+        <h2>Food & Drinks</h2>
+        <p>From breakfast to dinner, smoothies to traditional dishes.</p>
+      </div>
+
+      <div class="food-grid">
+        <div class="food-item glass reveal">
+          <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=900&q=80" alt="Breakfast" />
+          <div class="food-item-body">
+            <h4>Breakfasts</h4>
+            <p>Hearty morning plates</p>
+          </div>
+        </div>
+
+        <div class="food-item glass reveal">
+          <img src="https://images.unsplash.com/photo-1502741338009-cac2772e18bc?auto=format&fit=crop&w=900&q=80" alt="Smoothies" />
+          <div class="food-item-body">
+            <h4>Smoothies</h4>
+            <p>Fresh fruit blends</p>
+          </div>
+        </div>
+
+        <div class="food-item glass reveal">
+          <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=900&q=80" alt="Fresh juices" />
+          <div class="food-item-body">
+            <h4>Fresh Juices</h4>
+            <p>Bright & refreshing</p>
+          </div>
+        </div>
+
+        <div class="food-item glass reveal">
+          <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=900&q=80" alt="Lunch" />
+          <div class="food-item-body">
+            <h4>Lunches</h4>
+            <p>Midday favourites</p>
+          </div>
+        </div>
+
+        <div class="food-item glass reveal">
+          <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=900&q=80" alt="Dinner" />
+          <div class="food-item-body">
+            <h4>Dinners</h4>
+            <p>Evening indulgence</p>
+          </div>
+        </div>
+
+        <div class="food-item glass reveal">
+          <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=900&q=80" alt="Traditional food" />
+          <div class="food-item-body">
+            <h4>Traditional Food</h4>
+            <p>Local comfort</p>
+          </div>
+        </div>
+
+        <div class="food-item glass reveal">
+          <img src="images/burger.png" alt="Burgers" />
+          <div class="food-item-body">
+            <h4>Gourmet Burgers</h4>
+            <p>Chef's special</p>
+          </div>
+        </div>
+
+        <div class="food-item glass reveal">
+          <img src="https://images.unsplash.com/photo-1546833998-877b37c2e5c6?auto=format&fit=crop&w=900&q=80" alt="Steak" />
+          <div class="food-item-body">
+            <h4>Sirloin Steak</h4>
+            <p>Premium cuts</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TikTok Section -->
+  <section class="tiktok-section">
+    <div class="container">
+      <div class="tiktok-wrapper">
+        <div class="tiktok-content reveal">
+          <div class="eyebrow"><i class="fa-brands fa-tiktok"></i> Follow Us</div>
+          <h2>See Us on TikTok</h2>
+          <p>Get a behind-the-scenes look at our kitchen, events, and daily specials. Follow @the.chef.on.epsom for the latest updates, cooking tips, and mouth-watering content.</p>
+          <a href="https://www.tiktok.com/@the.chef.on.epsom" target="_blank" class="btn btn-outline">
+            <i class="fa-brands fa-tiktok"></i> Visit TikTok Profile
+          </a>
+        </div>
+
+        <div class="tiktok-embed-container reveal">
+          <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@the.chef.on.epsom" data-unique-id="the.chef.on.epsom" data-embed-type="creator" style="max-width: 780px; min-width: 288px;">
+            <section>
+              <a target="_blank" href="https://www.tiktok.com/@the.chef.on.epsom?refer=creator_embed">@the.chef.on.epsom</a>
+            </section>
+          </blockquote>
+          <script async src="https://www.tiktok.com/embed.js"></script>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Socials Section -->
+  <section class="socials-section">
+    <div class="container">
+      <div class="section-head reveal" style="margin: 0 auto 20px; text-align: center;">
+        <div class="eyebrow" style="justify-content: center;"><i class="fa-solid fa-share-nodes"></i> Connect With Us</div>
+        <h2>Follow Our Journey</h2>
+        <p>Stay connected for daily specials, event updates, and behind-the-scenes content.</p>
+      </div>
+
+      <div class="socials-grid reveal">
+        <a href="https://wa.me/27764021070" target="_blank" class="social-card glass whatsapp">
+          <i class="fa-brands fa-whatsapp"></i>
+          <h4>WhatsApp</h4>
+          <span>+27 76 402 1070</span>
+        </a>
+
+        <a href="https://www.instagram.com/thechefatepsom/" target="_blank" class="social-card glass instagram">
+          <i class="fa-brands fa-instagram"></i>
+          <h4>Instagram</h4>
+          <span>@thechefatepsom</span>
+        </a>
+
+        <a href="https://www.tiktok.com/@the.chef.on.epsom" target="_blank" class="social-card glass tiktok">
+          <i class="fa-brands fa-tiktok"></i>
+          <h4>TikTok</h4>
+          <span>@the.chef.on.epsom</span>
+        </a>
+
+        <a href="mailto:thechefatepsom12@gmail.com" class="social-card glass email">
+          <i class="fa-solid fa-envelope"></i>
+          <h4>Email</h4>
+          <span>thechefatepsom12@gmail.com</span>
+        </a>
+
+        <a href="https://www.ubereats.com/za/store/the-chef-on-epsom/mR7Wus4VUza6bVr_Cr2jdg?diningMode=PICKUP&utm_campaign=CM2508147-search-free-nonbrand-google-pas_e_all_acq_Global&utm_medium=search-free-nonbrand&utm_source=google-pas" target="_blank" class="social-card glass uber">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <h4>Uber Eats</h4>
+          <span>Order Online</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-brand-top">
+            <div class="brand-mark">
+              <img src="images/logo.png" alt="The Chef on Epsom logo" />
+            </div>
+            <div class="footer-brand-copy">
+              <h3>The Chef on Epsom</h3>
+              <p>Elegant dining, memorable events, catering, décor, cakes, flowers, gifting and warm hospitality in Stirling, East London.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-links-group">
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <a href="index.html">Home</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#services">Services</a>
+            <a href="index.html#menu">Menu</a>
+          </div>
+
+          <div class="footer-col">
+            <h4>More</h4>
+            <a href="gallery.html">Gallery</a>
+            <a href="index.html#hours">Hours</a>
+            <a href="index.html#reviews">Reviews</a>
+            <a href="index.html#contact">Contact</a>
+          </div>
+        </div>
+
+        <div class="footer-col footer-connect">
+          <h4>Connect</h4>
+          <p>+27 76 402 1070</p>
+          <p>thechefatepsom12@gmail.com</p>
+          <div class="footer-socials">
+            <a href="https://wa.me/27764021070" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/thechefatepsom/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@the.chef.on.epsom" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://www.ubereats.com/za/store/the-chef-on-epsom/mR7Wus4VUza6bVr_Cr2jdg?diningMode=PICKUP&utm_campaign=CM2508147-search-free-nonbrand-google-pas_e_all_acq_Global&utm_medium=search-free-nonbrand&utm_source=google-pas" target="_blank" aria-label="Uber Eats"><i class="fa-solid fa-bag-shopping"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 The Chef on Epsom. All rights reserved.</span>
+        <span>Black • White • Gold • Red</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Float -->
+  <a class="whatsapp-float" href="https://wa.me/27764021070" target="_blank" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <img src="" alt="" id="lightboxImg" />
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    /* Mobile Menu */
+    const openMenu = document.getElementById("openMenu");
+    const closeMenu = document.getElementById("closeMenu");
+    const mobileSidebar = document.getElementById("mobileSidebar");
+    const mobileOverlay = document.getElementById("mobileOverlay");
+    const mobileLinks = document.querySelectorAll(".mobile-nav a");
+
+    function openSidebar() {
+      mobileSidebar.classList.add("show");
+      mobileOverlay.classList.add("show");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeSidebar() {
+      mobileSidebar.classList.remove("show");
+      mobileOverlay.classList.remove("show");
+      document.body.style.overflow = "";
+    }
+
+    openMenu.addEventListener("click", openSidebar);
+    closeMenu.addEventListener("click", closeSidebar);
+    mobileOverlay.addEventListener("click", closeSidebar);
+    mobileLinks.forEach(link => link.addEventListener("click", closeSidebar));
+
+    /* Reveal Animation */
+    const revealElements = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, { threshold: 0.15 });
+
+    revealElements.forEach(el => observer.observe(el));
+
+    /* Lightbox */
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+
+    function openLightbox(src, alt) {
+      lightboxImg.src = src;
+      lightboxImg.alt = alt;
+      lightbox.classList.add("show");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove("show");
+      document.body.style.overflow = "";
+    }
+
+    // Close on Escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeLightbox();
+    });
+  </script>
+
+</body>
+</html>
