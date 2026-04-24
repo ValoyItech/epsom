@@ -8,375 +8,165 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
   <style>
     :root {
-      --bg: #070707;
-      --bg-2: #0d0d0d;
-      --bg-3: #141414;
-      --panel: rgba(255,255,255,0.06);
-      --panel-2: rgba(255,255,255,0.03);
-      --text: #f7f3eb;
-      --muted: #cec2b2;
-      --line: rgba(255,255,255,0.10);
-      --gold: #d4a03d;
-      --gold-2: #f1c46c;
-      --red: #b51e23;
-      --red-2: #ec3b3b;
+      /* MONOCHROME THEME - Matching Index Page */
+      --bg: #ffffff;
+      --bg-2: #f5f5f5;
+      --bg-3: #eeeeee;
+      --panel: rgba(0,0,0,0.04);
+      --panel-2: rgba(0,0,0,0.02);
+      --text: #111111;
+      --muted: #666666;
+      --line: #e0e0e0;
+
+      /* Black, white, grays only */
+      --black: #000000;
+      --dark-gray: #1a1a1a;
+      --charcoal: #2d2d2d;
+      --medium-gray: #555555;
+      --light-gray: #999999;
+      --off-white: #f8f8f8;
       --white: #ffffff;
-      --radius: 24px;
-      --radius-lg: 34px;
-      --shadow: 0 20px 70px rgba(0,0,0,0.45);
-      --container: 1280px;
-      --ease: 0.35s ease;
+
+      /* Gold ONLY for reviews section */
+      --gold: #c9a227;
+      --gold-2: #b8941d;
+
+      --radius: 16px;
+      --radius-lg: 24px;
+      --shadow: 0 10px 40px rgba(0,0,0,0.08);
+      --shadow-dark: 0 10px 40px rgba(0,0,0,0.3);
+      --container: 1200px;
+      --ease: 0.3s ease;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
-    html, body {
-      overflow-x: hidden;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+    html, body { overflow-x: hidden; }
 
     body {
       font-family: "Inter", sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(212,160,61,0.08), transparent 20%),
-        radial-gradient(circle at bottom right, rgba(181,30,35,0.07), transparent 22%),
-        var(--bg);
+      background: var(--bg);
       color: var(--text);
       line-height: 1.6;
+      font-weight: 400;
     }
 
-    h1, h2, h3, h4, h5 {
-      font-family: "Playfair Display", serif;
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-    }
+    h1, h2, h3 { font-weight: 500; line-height: 1.2; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; width: 100%; }
+    button { font: inherit; }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      display: block;
-      width: 100%;
-    }
-
-    button {
-      font: inherit;
-    }
-
-    .container {
-      width: min(92%, var(--container));
-      margin: 0 auto;
-    }
-
-    .section {
-      padding: 100px 0;
-      position: relative;
-    }
-
-    .section-head {
-      max-width: 760px;
-      margin-bottom: 34px;
-    }
+    .container { width: min(92%, var(--container)); margin: 0 auto; }
+    .section { padding: 100px 0; }
+    .section-head { max-width: 760px; margin-bottom: 34px; }
 
     .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 9px 16px;
-      border-radius: 999px;
-      border: 1px solid rgba(212,160,61,0.34);
-      background: rgba(212,160,61,0.08);
-      color: var(--gold-2);
-      text-transform: uppercase;
-      letter-spacing: 1.9px;
-      font-size: 12px;
-      font-weight: 700;
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 9px 16px; border-radius: 999px;
+      border: 1px solid var(--line); background: var(--panel);
+      color: var(--muted); text-transform: uppercase;
+      letter-spacing: 1.9px; font-size: 12px; font-weight: 700;
       margin-bottom: 16px;
     }
 
-    .section-head h2 {
-      font-size: clamp(2.2rem, 4vw, 3.8rem);
-      margin-bottom: 14px;
-    }
-
-    .section-head p {
-      color: var(--muted);
-      font-size: 1.05rem;
-    }
+    .section-head h2 { font-size: clamp(2.2rem, 4vw, 3.8rem); line-height: 1.15; margin-bottom: 14px; }
+    .section-head p { color: var(--muted); font-size: 1.05rem; }
 
     .glass {
-      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
+      background: var(--white);
       border: 1px solid var(--line);
       box-shadow: var(--shadow);
-      backdrop-filter: blur(12px);
     }
 
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 15px 24px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      font-weight: 700;
-      transition: var(--ease);
-      cursor: pointer;
-      min-height: 52px;
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 12px 20px; border-radius: 6px; border: 1px solid transparent;
+      font-weight: 700; transition: var(--ease); cursor: pointer; min-height: 48px;
     }
+    .btn:hover { transform: translateY(-3px); }
 
-    .btn:hover {
-      transform: translateY(-3px);
-    }
+    /* Primary buttons - Black */
+    .btn-gold { background: var(--black); color: var(--white); }
+    .btn-gold:hover { background: var(--charcoal); }
 
-    .btn-gold {
-      background: linear-gradient(135deg, var(--gold), var(--gold-2));
-      color: #111;
-      box-shadow: 0 10px 30px rgba(212,160,61,0.24);
-    }
+    /* Secondary buttons - Gray */
+    .btn-red { background: var(--charcoal); color: var(--white); }
+    .btn-red:hover { background: var(--medium-gray); }
 
-    .btn-red {
-      background: linear-gradient(135deg, var(--red), var(--red-2));
-      color: #fff;
-      box-shadow: 0 10px 30px rgba(181,30,35,0.24);
-    }
+    /* Outline buttons */
+    .btn-outline { background: transparent; color: var(--text); border-color: var(--line); }
+    .btn-outline:hover { border-color: var(--black); color: var(--black); }
 
-    .btn-outline {
-      background: rgba(255,255,255,0.03);
-      color: #fff;
-      border-color: rgba(255,255,255,0.14);
-    }
-
-    .btn-outline:hover {
-      border-color: var(--gold);
-      color: var(--gold);
-    }
-
-    /* NAV */
+    /* NAV - BLACK BACKGROUND for transparent white logo */
     .navbar {
-      position: fixed;
-      inset: 0 0 auto 0;
-      z-index: 1200;
-      background: rgba(7,7,7,0.62);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      position: fixed; inset: 0 0 auto 0; z-index: 1200;
+      background: var(--black);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
     }
+    .nav-inner { min-height: 80px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 
-    .nav-inner {
-      min-height: 84px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
+    .brand { display: flex; align-items: center; gap: 14px; }
+    .brand-mark { display: flex; align-items: center; justify-content: center; }
+    .brand-mark img { height: 80px; width: auto; }
+    @media (max-width: 640px) { .brand-mark img { height: 70px; } }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
+    .brand-text strong { display: block; font-size: 1.08rem; line-height: 1; color: var(--white); }
+    .brand-text span { display: block; color: var(--light-gray); text-transform: uppercase; letter-spacing: 2px; font-size: 11px; margin-top: 5px; font-weight: 700; }
 
-    .brand-mark {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: none;
-      box-shadow: none;
-      width: auto;
-      height: auto;
-    }
-
-    .brand-mark img {
-      height: 80px;
-      width: auto;
-    }
-
-    @media (max-width: 640px) {
-      .brand-mark img {
-        height: 70px;
-      }
-    }
-
-    .brand-text strong {
-      display: block;
-      font-size: 1.08rem;
-      line-height: 1;
-    }
-
-    .brand-text span {
-      display: block;
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 11px;
-      margin-top: 5px;
-      font-weight: 700;
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
-      align-items: center;
-    }
-
-    .nav-links a {
-      color: #f0e6d8;
-      font-weight: 500;
-      transition: var(--ease);
-      position: relative;
-    }
-
-    .nav-links a:hover {
-      color: var(--gold);
-    }
-
-    .desktop-cta {
-      display: inline-flex;
-      margin-left: 6px;
-    }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; }
+    .nav-links a { color: rgba(255,255,255,0.85); font-weight: 500; transition: var(--ease); }
+    .nav-links a:hover { color: var(--white); }
+    .desktop-cta { display: inline-flex; margin-left: 6px; }
 
     .menu-toggle {
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
-      display: none;
-      place-items: center;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.04);
-      color: #fff;
-      cursor: pointer;
-      transition: var(--ease);
+      width: 48px; height: 48px; border-radius: 14px;
+      display: none; place-items: center;
+      border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.1);
+      color: var(--white); cursor: pointer; transition: var(--ease);
     }
+    .menu-toggle:hover { border-color: var(--white); background: rgba(255,255,255,0.2); }
 
-    .menu-toggle:hover {
-      border-color: var(--gold);
-      color: var(--gold);
-    }
-
-    /* MOBILE SIDEBAR */
+    /* MOBILE SIDEBAR - DARK */
     .mobile-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.6);
-      opacity: 0;
-      visibility: hidden;
-      transition: var(--ease);
-      z-index: 1300;
+      position: fixed; inset: 0; background: rgba(0,0,0,0.5);
+      opacity: 0; visibility: hidden; transition: var(--ease); z-index: 1300;
     }
-
-    .mobile-overlay.show {
-      opacity: 1;
-      visibility: visible;
-    }
+    .mobile-overlay.show { opacity: 1; visibility: visible; }
 
     .mobile-sidebar {
-      position: fixed;
-      top: 0;
-      right: -380px;
-      width: min(90vw, 360px);
-      height: 100vh;
-      z-index: 1400;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)),
-        #0c0c0c;
-      border-left: 1px solid rgba(255,255,255,0.08);
-      box-shadow: -20px 0 60px rgba(0,0,0,0.45);
-      transition: right 0.35s ease;
-      padding: 22px;
-      display: flex;
-      flex-direction: column;
+      position: fixed; top: 0; right: -380px;
+      width: min(90vw, 360px); height: 100vh; z-index: 1400;
+      background: var(--dark-gray); border-left: 1px solid rgba(255,255,255,0.1);
+      box-shadow: -20px 0 60px rgba(0,0,0,0.5);
+      transition: right 0.35s ease; padding: 22px;
+      display: flex; flex-direction: column;
     }
+    .mobile-sidebar.show { right: 0; }
 
-    .mobile-sidebar.show {
-      right: 0;
-    }
+    .mobile-top { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 24px; }
+    .mobile-close { width: 44px; height: 44px; border-radius: 12px; background: rgba(255,255,255,0.1); color: var(--white); border: 1px solid rgba(255,255,255,0.2); cursor: pointer; }
+    .mobile-nav { display: grid; gap: 8px; margin-bottom: 28px; }
+    .mobile-nav a { padding: 14px 16px; border-radius: 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); font-weight: 600; transition: var(--ease); color: rgba(255,255,255,0.9); }
+    .mobile-nav a:hover { color: var(--white); border-color: var(--white); background: rgba(255,255,255,0.1); }
 
-    .mobile-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      margin-bottom: 24px;
-    }
+    .mobile-socials { display: flex; gap: 12px; flex-wrap: wrap; margin-top: auto; }
+    .mobile-socials a { width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); transition: var(--ease); color: var(--white); }
+    .mobile-socials a:hover { transform: translateY(-3px); background: rgba(255,255,255,0.15); border-color: var(--white); }
 
-    .mobile-close {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      background: rgba(255,255,255,0.05);
-      color: #fff;
-      border: 1px solid rgba(255,255,255,0.10);
-      cursor: pointer;
-    }
-
-    .mobile-nav {
-      display: grid;
-      gap: 8px;
-      margin-bottom: 28px;
-    }
-
-    .mobile-nav a {
-      padding: 14px 16px;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
-      font-weight: 600;
-      transition: var(--ease);
-    }
-
-    .mobile-nav a:hover {
-      color: var(--gold);
-      border-color: rgba(212,160,61,0.30);
-    }
-
-    .mobile-socials {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: auto;
-    }
-
-    .mobile-socials a {
-      width: 46px;
-      height: 46px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      transition: var(--ease);
-    }
-
-    .mobile-socials a:hover {
-      transform: translateY(-3px);
-      color: var(--gold);
-      border-color: rgba(212,160,61,0.30);
-    }
-
-    /* HERO */
+    /* PAGE HERO - Dark overlay like index hero */
     .page-hero {
       position: relative;
       min-height: 50vh;
-      padding-top: 84px;
+      padding-top: 80px;
       display: flex;
       align-items: center;
       background:
         linear-gradient(90deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.64) 40%, rgba(0,0,0,0.38) 100%),
-        radial-gradient(circle at right center, rgba(181,30,35,0.22), transparent 22%),
-        radial-gradient(circle at left top, rgba(212,160,61,0.15), transparent 20%),
-        url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+        url('images/banner.png') center/cover no-repeat;
     }
 
     .page-hero-content {
@@ -386,22 +176,90 @@
     .page-hero h1 {
       font-size: clamp(2.5rem, 5vw, 4.5rem);
       margin-bottom: 16px;
+      color: var(--white);
+      font-weight: 500;
+      line-height: 1.2;
     }
 
     .page-hero p {
-      color: var(--muted);
+      color: rgba(255,255,255,0.85);
       font-size: 1.1rem;
       max-width: 600px;
     }
 
-    /* GALLERY GRIDS */
+    .page-hero .eyebrow {
+      border-color: rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.1);
+      color: var(--white);
+    }
+
+    /* GALLERY SECTIONS */
     .gallery-section {
       padding: 80px 0;
     }
 
-    .gallery-grid {
+    /* SERVICES GALLERY - Light cards with dark hover */
+    .services-gallery {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .service-gallery-card {
+      position: relative;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      min-height: 320px;
+      transition: var(--ease);
+      cursor: pointer;
+    }
+
+    .service-gallery-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--black);
+      box-shadow: var(--shadow);
+    }
+
+    .service-gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+      transition: transform 0.8s ease;
+    }
+
+    .service-gallery-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .service-gallery-body {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 24px;
+      background: linear-gradient(180deg, transparent, rgba(0,0,0,0.9));
+    }
+
+    .service-gallery-body h3 {
+      font-size: 1.5rem;
+      margin-bottom: 6px;
+      color: var(--white);
+      font-weight: 500;
+    }
+
+    .service-gallery-body p {
+      color: var(--light-gray);
+      font-size: 0.95rem;
+    }
+
+    /* MAIN GALLERY GRID */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 0.8fr;
+      grid-auto-rows: 250px;
       gap: 18px;
     }
 
@@ -409,27 +267,24 @@
       border-radius: 24px;
       overflow: hidden;
       position: relative;
-      border: 1px solid rgba(255,255,255,0.08);
+      border: 1px solid var(--line);
       box-shadow: var(--shadow);
-      min-height: 280px;
+      min-height: 240px;
       cursor: pointer;
       transition: var(--ease);
     }
 
     .gallery-item:hover {
       transform: translateY(-6px);
-      border-color: rgba(212,160,61,0.3);
+      border-color: var(--black);
     }
 
     .gallery-item.large {
-      grid-column: span 2;
       grid-row: span 2;
-      min-height: 580px;
     }
 
     .gallery-item.tall {
       grid-row: span 2;
-      min-height: 580px;
     }
 
     .gallery-item img {
@@ -460,69 +315,65 @@
     .gallery-overlay h4 {
       font-size: 1.3rem;
       margin-bottom: 4px;
+      font-weight: 500;
     }
 
     .gallery-overlay p {
-      color: var(--muted);
+      color: var(--light-gray);
       font-size: 0.95rem;
     }
 
-    /* SERVICES GALLERY */
-    .services-gallery {
+    /* FOOD SHOWCASE */
+    .food-showcase {
+      padding: 80px 0;
+      background: linear-gradient(180deg, var(--bg-2), var(--bg));
+    }
+
+    .food-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
     }
 
-    .service-gallery-card {
-      position: relative;
-      border-radius: 22px;
+    .food-item {
+      border-radius: 20px;
       overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.08);
-      min-height: 320px;
+      border: 1px solid var(--line);
       transition: var(--ease);
+      background: var(--white);
+      box-shadow: var(--shadow);
     }
 
-    .service-gallery-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(212,160,61,0.3);
+    .food-item:hover {
+      transform: translateY(-5px);
+      border-color: var(--black);
     }
 
-    .service-gallery-card img {
+    .food-item img {
       width: 100%;
-      height: 100%;
+      height: 200px;
       object-fit: cover;
-      position: absolute;
-      inset: 0;
-      transition: transform 0.8s ease;
     }
 
-    .service-gallery-card:hover img {
-      transform: scale(1.08);
+    .food-item-body {
+      padding: 18px;
     }
 
-    .service-gallery-body {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 24px;
-      background: linear-gradient(180deg, transparent, rgba(0,0,0,0.9));
+    .food-item h4 {
+      font-size: 1.1rem;
+      margin-bottom: 4px;
+      font-weight: 500;
+      color: var(--text);
     }
 
-    .service-gallery-body h3 {
-      font-size: 1.5rem;
-      margin-bottom: 6px;
-    }
-
-    .service-gallery-body p {
+    .food-item p {
       color: var(--muted);
-      font-size: 0.95rem;
+      font-size: 0.9rem;
     }
 
     /* TIKTOK SECTION */
     .tiktok-section {
-      background: linear-gradient(180deg, rgba(181,30,35,0.06), rgba(255,255,255,0.01));
+      background: linear-gradient(180deg, var(--bg-2), var(--bg));
       padding: 80px 0;
     }
 
@@ -536,6 +387,8 @@
     .tiktok-content h2 {
       font-size: clamp(2rem, 4vw, 3rem);
       margin-bottom: 16px;
+      font-weight: 500;
+      line-height: 1.2;
     }
 
     .tiktok-content p {
@@ -574,11 +427,14 @@
       min-width: 160px;
       transition: var(--ease);
       text-align: center;
+      background: var(--white);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
     }
 
     .social-card:hover {
       transform: translateY(-8px);
-      border-color: rgba(212,160,61,0.3);
+      border-color: var(--black);
     }
 
     .social-card i {
@@ -594,13 +450,15 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-    .social-card.tiktok i { color: #fff; }
-    .social-card.email i { color: var(--gold); }
+    .social-card.tiktok i { color: var(--black); }
+    .social-card.email i { color: var(--black); }
     .social-card.uber i { color: #06c167; }
 
     .social-card h4 {
       font-size: 1.2rem;
       margin-bottom: 8px;
+      font-weight: 500;
+      color: var(--text);
     }
 
     .social-card span {
@@ -608,57 +466,11 @@
       font-size: 0.9rem;
     }
 
-    /* FOOD SHOWCASE */
-    .food-showcase {
-      padding: 80px 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.9), rgba(0,0,0,0.95));
-    }
-
-    .food-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .food-item {
-      border-radius: 20px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.08);
-      transition: var(--ease);
-    }
-
-    .food-item:hover {
-      transform: translateY(-5px);
-      border-color: rgba(212,160,61,0.3);
-    }
-
-    .food-item img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-
-    .food-item-body {
-      padding: 18px;
-    }
-
-    .food-item h4 {
-      font-size: 1.1rem;
-      margin-bottom: 4px;
-    }
-
-    .food-item p {
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    /* FOOTER */
+    /* FOOTER - BLACK BACKGROUND */
     .footer {
       padding: 80px 0 28px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0)),
-        #050505;
-      border-top: 1px solid rgba(255,255,255,0.08);
+      background: var(--black);
+      border-top: 1px solid rgba(255,255,255,0.1);
     }
 
     .footer-grid {
@@ -693,10 +505,11 @@
     .footer-brand-copy h3 {
       margin-bottom: 12px;
       font-size: 2rem;
+      color: var(--white);
     }
 
     .footer-brand-copy p {
-      color: var(--muted);
+      color: var(--light-gray);
       max-width: 420px;
       margin: 0;
     }
@@ -710,18 +523,19 @@
     .footer-col h4 {
       font-size: 1.3rem;
       margin-bottom: 14px;
+      color: var(--white);
     }
 
     .footer-col a,
     .footer-col p {
       display: block;
-      color: var(--muted);
+      color: var(--light-gray);
       margin-bottom: 10px;
       transition: var(--ease);
     }
 
     .footer-col a:hover {
-      color: var(--gold);
+      color: var(--white);
       transform: translateX(3px);
     }
 
@@ -738,29 +552,31 @@
       border-radius: 14px;
       display: grid;
       place-items: center;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
       transition: var(--ease);
+      color: var(--white);
     }
 
     .footer-socials a:hover {
+      color: var(--white);
+      border-color: var(--white);
+      background: rgba(255,255,255,0.2);
       transform: translateY(-3px);
-      color: var(--gold);
-      border-color: rgba(212,160,61,0.3);
     }
 
     .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.08);
+      border-top: 1px solid rgba(255,255,255,0.1);
       padding-top: 18px;
       display: flex;
       justify-content: space-between;
       gap: 16px;
       flex-wrap: wrap;
-      color: #bcae9d;
+      color: var(--light-gray);
       font-size: 0.95rem;
     }
 
-    /* FLOATING WHATSAPP */
+    /* WHATSAPP FLOAT - BLACK */
     .whatsapp-float {
       position: fixed;
       right: 18px;
@@ -771,16 +587,18 @@
       border-radius: 50%;
       display: grid;
       place-items: center;
-      background: linear-gradient(135deg, #25d366, #1fa952);
+      background: var(--black);
       color: white;
       font-size: 1.8rem;
-      box-shadow: 0 18px 40px rgba(37,211,102,0.32);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.3);
       transition: var(--ease);
       animation: bounceSoft 2.4s infinite;
+      border: 2px solid var(--white);
     }
 
     .whatsapp-float:hover {
       transform: scale(1.08);
+      background: var(--charcoal);
     }
 
     /* REVEAL */
@@ -838,8 +656,8 @@
     }
 
     .lightbox-close:hover {
-      background: var(--red);
-      border-color: var(--red);
+      background: var(--black);
+      border-color: var(--white);
     }
 
     /* RESPONSIVE */
@@ -899,7 +717,39 @@
         padding: 24px 20px;
       }
     }
+
+
+    
+.cart-float {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 1500;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--black);
+  color: white;
+  font-size: 1.5rem;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.3);
+  transition: var(--ease);
+  border: 2px solid var(--white);
+  cursor: pointer;
+  animation: bounceSoft 2.4s infinite;
+}
+
+.cart-float:hover {
+  transform: scale(1.08);
+  background: var(--charcoal);
+}
+
+.cart-float {
+  text-decoration: none;
+}
   </style>
+<base target="_blank">
 </head>
 <body>
 
@@ -926,9 +776,9 @@
         <a href="index.html#contact">Contact</a>
       </div>
 
-      <a href="https://www.ubereats.com/za/store/the-chef-on-epsom/mR7Wus4VUza6bVr_Cr2jdg?diningMode=PICKUP&utm_campaign=CM2508147-search-free-nonbrand-google-pas_e_all_acq_Global&utm_medium=search-free-nonbrand&utm_source=google-pas" target="_blank" class="btn btn-red desktop-cta">
-        <i class="fa-solid fa-bag-shopping"></i> Order Online
-      </a>
+      <a href="javascript:void(0);" onclick="openOrderPopup()" target="_self" class="btn btn-red desktop-cta">
+  <i class="fa-solid fa-bag-shopping"></i> Order Online
+</a>
 
       <button class="menu-toggle" id="openMenu" aria-label="Open menu">
         <i class="fa-solid fa-bars"></i>
@@ -963,7 +813,7 @@
       <a href="index.html#hours">Hours</a>
       <a href="index.html#reviews">Reviews</a>
       <a href="index.html#contact">Contact</a>
-      <a href="https://www.ubereats.com/za/store/the-chef-on-epsom/mR7Wus4VUza6bVr_Cr2jdg?diningMode=PICKUP&utm_campaign=CM2508147-search-free-nonbrand-google-pas_e_all_acq_Global&utm_medium=search-free-nonbrand&utm_source=google-pas" target="_blank">Order Online</a>
+      <a href="javascript:void(0);" onclick="openOrderPopup()" target="_self">Order Online</a>
     </div>
 
     <div class="mobile-socials">
@@ -976,100 +826,166 @@
 
   <!-- Page Hero -->
   <header class="page-hero">
-    <div class="container page-hero-content">
-      <div class="eyebrow"><i class="fa-solid fa-images"></i> Visual Journey</div>
-      <h1>Our Gallery</h1>
-      <p>Explore our world of culinary excellence, elegant events, and unforgettable moments at The Chef on Epsom.</p>
+  <div class="container page-hero-content">
+
+    <div class="eyebrow">
+      <i class="fa-solid fa-images"></i> Visual Journey
     </div>
-  </header>
+
+    <h1>Our Gallery</h1>
+
+    <p>
+      Explore our world of culinary excellence, elegant events, and unforgettable moments at The Chef on Epsom.
+    </p>
+
+    <!-- CTA BUTTONS -->
+    <div style="
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    ">
+
+      <!-- View Menu -->
+      <a href="index.html#menu" target="_self" class="btn btn-gold">
+        <i class="fa-solid fa-utensils"></i> View Menu
+      </a>
+
+      <!-- Uber Eats -->
+      <a href="https://www.ubereats.com/za/store/the-chef-on-epsom/mR7Wus4VUza6bVr_Cr2jdg?diningMode=PICKUP&utm_campaign=CM2508147-search-free-nonbrand-google-pas_e_all_acq_Global&utm_medium=search-free-nonbrand&utm_source=google-pas"
+         target="_blank"
+         class="btn btn-red">
+        <i class="fa-solid fa-bag-shopping"></i> Uber Eats
+      </a>
+
+      <!-- Mr D -->
+      <!-- Mr D -->
+<a href="https://www.mrd.com/delivery/restaurant/the-chef-on-epsom-stirling/30291"
+   target="_blank"
+   class="btn btn-gold">
+  <i class="fa-solid fa-motorcycle"></i> Mr D
+</a>
+    </div>
+
+  </div>
+</header>
 
   <!-- Services Gallery -->
-  <section class="gallery-section">
-    <div class="container">
-      <div class="section-head reveal">
-        <div class="eyebrow">What We Offer</div>
-        <h2>Services & Experiences</h2>
-        <p>From décor to dining, cakes to catering — see what makes us special.</p>
-      </div>
-
-      <div class="services-gallery">
-        <div class="service-gallery-card reveal" onclick="openLightbox('images/service-decor.jpg', 'Events Décor')">
-          <img src="images/service-decor.jpg" alt="Events décor" />
-          <div class="service-gallery-body">
-            <h3>Events Décor</h3>
-            <p>Elegant styling for birthdays, weddings and private functions</p>
-          </div>
-        </div>
-
-        <div class="service-gallery-card reveal" onclick="openLightbox('images/service-venue.jpg', 'Venue Hire')">
-          <img src="images/service-venue.jpg" alt="Venue hire" />
-          <div class="service-gallery-body">
-            <h3>Venue Hire</h3>
-            <p>Host intimate events in a warm, stylish setting</p>
-          </div>
-        </div>
-
-        <div class="service-gallery-card reveal" onclick="openLightbox('images/service-accessories.jpg', 'Décor Accessories')">
-          <img src="images/service-accessories.jpg" alt="Décor accessories" />
-          <div class="service-gallery-body">
-            <h3>Décor Accessories</h3>
-            <p>Beautiful finishing touches for your event setup</p>
-          </div>
-        </div>
-
-        <div class="service-gallery-card reveal" onclick="openLightbox('images/service-catering.jpg', 'Catering')">
-          <img src="images/service-catering.jpg" alt="Catering" />
-          <div class="service-gallery-body">
-            <h3>Catering</h3>
-            <p>Corporate and private catering with premium presentation</p>
-          </div>
-        </div>
-
-        <div class="service-gallery-card reveal" onclick="openLightbox('images/service-cakes.jpg', 'Cakes & Bakes')">
-          <img src="images/service-cakes.jpg" alt="Cakes and bakes" />
-          <div class="service-gallery-body">
-            <h3>Cakes & Bakes</h3>
-            <p>Custom cakes, scones and sweet treats for every occasion</p>
-          </div>
-        </div>
-
-        <div class="service-gallery-card reveal" onclick="openLightbox('images/service-classes.jpg', 'Cooking Classes')">
-          <img src="images/service-classes.jpg" alt="Cooking classes" />
-          <div class="service-gallery-body">
-            <h3>Cooking Classes</h3>
-            <p>Fun, social and memorable cooking experiences</p>
-          </div>
-        </div>
-
-        <div class="service-gallery-card reveal" onclick="openLightbox('images/service-gifts.jpg', 'Gifts & Baskets')">
-          <img src="images/service-gifts.jpg" alt="Gift baskets" />
-          <div class="service-gallery-body">
-            <h3>Gifts & Baskets</h3>
-            <p>Thoughtful hampers and curated gift selections</p>
-          </div>
-        </div>
-
-        <div class="service-gallery-card reveal" onclick="openLightbox('images/service-flowers.jpg', 'Flowers & Bouquets')">
-          <img src="images/service-flowers.jpg" alt="Flowers" />
-          <div class="service-gallery-body">
-            <h3>Flowers & Bouquets</h3>
-            <p>Fresh arrangements for events and gifting</p>
-          </div>
-        </div>
-
-        <div class="service-gallery-card reveal" onclick="openLightbox('images/service-corporate.jpg', 'Private & Corporate')">
-          <img src="images/service-corporate.jpg" alt="Corporate services" />
-          <div class="service-gallery-body">
-            <h3>Private & Corporate</h3>
-            <p>Tailored solutions for business and personal events</p>
-          </div>
-        </div>
-      </div>
+<section class="gallery-section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">What We Offer</div>
+      <h2>Services & Experiences</h2>
+      <p>From décor to dining, cakes to catering — see what makes us special.</p>
     </div>
-  </section>
+
+    <div class="services-gallery">
+
+      <a href="index.html#book-service=Events%20D%C3%A9cor" class="service-gallery-card reveal" style="display:block;text-decoration:none;color:inherit;">
+        <img src="images/events.jpg" alt="Events décor" />
+        <div class="service-gallery-body">
+          <h3>Events Décor</h3>
+          <p>Elegant styling for birthdays, weddings and private functions</p>
+          <div class="service-book-hint" style="margin-top:8px;font-size:0.8rem;font-weight:700;color:#fff;">
+  <i class="fa-solid fa-calendar-check"></i> Click to Book
+</div>
+        </div>
+      </a>
+
+      <a href="index.html#book-service=Venue%20Hire" class="service-gallery-card reveal" style="display:block;text-decoration:none;color:inherit;">
+        <img src="images/service-venue.jpg" alt="Venue hire" />
+        <div class="service-gallery-body">
+          <h3>Venue Hire</h3>
+          <p>Host intimate events in a warm, stylish setting</p>
+          <div class="service-book-hint" style="margin-top:8px;font-size:0.8rem;font-weight:700;color:#fff;">
+  <i class="fa-solid fa-calendar-check"></i> Click to Book
+</div>
+        </div>
+      </a>
+
+      <a href="index.html#book-service=D%C3%A9cor%20Accessories" class="service-gallery-card reveal" style="display:block;text-decoration:none;color:inherit;">
+        <img src="images/accsorries.jpeg" alt="Décor accessories" />
+        <div class="service-gallery-body">
+          <h3>Décor Accessories</h3>
+          <p>Beautiful finishing touches for your event setup</p>
+          <div class="service-book-hint" style="margin-top:8px;font-size:0.8rem;font-weight:700;color:#fff;">
+  <i class="fa-solid fa-calendar-check"></i> Click to Book
+</div>
+        </div>
+      </a>
+
+      <a href="index.html#book-service=Catering" class="service-gallery-card reveal" style="display:block;text-decoration:none;color:inherit;">
+        <img src="images/catering.jpg" alt="Catering" />
+        <div class="service-gallery-body">
+          <h3>Catering</h3>
+          <p>Corporate and private catering with premium presentation</p>
+          <div class="service-book-hint" style="margin-top:8px;font-size:0.8rem;font-weight:700;color:#fff;">
+  <i class="fa-solid fa-calendar-check"></i> Click to Book
+</div>
+        </div>
+      </a>
+
+      <a href="index.html#book-service=Cakes%20%26%20Bakes" class="service-gallery-card reveal" style="display:block;text-decoration:none;color:inherit;">
+        <img src="images/cake.jpeg" alt="Cakes and bakes" />
+        <div class="service-gallery-body">
+          <h3>Cakes & Bakes</h3>
+          <p>Custom cakes, scones and sweet treats for every occasion</p>
+          <div class="service-book-hint" style="margin-top:8px;font-size:0.8rem;font-weight:700;color:#fff;">
+  <i class="fa-solid fa-calendar-check"></i> Click to Book
+</div>
+        </div>
+      </a>
+
+      <a href="index.html#book-service=Cooking%20Classes" class="service-gallery-card reveal" style="display:block;text-decoration:none;color:inherit;">
+        <img src="images/cooking.jpg" alt="Cooking classes" />
+        <div class="service-gallery-body">
+          <h3>Cooking Classes</h3>
+          <p>Fun, social and memorable cooking experiences</p>
+          <div class="service-book-hint" style="margin-top:8px;font-size:0.8rem;font-weight:700;color:#fff;">
+  <i class="fa-solid fa-calendar-check"></i> Click to Book
+</div>
+        </div>
+      </a>
+
+      <a href="index.html#book-service=Gifts%20%26%20Baskets" class="service-gallery-card reveal" style="display:block;text-decoration:none;color:inherit;">
+        <img src="images/birthday.jpeg" alt="Gift baskets" />
+        <div class="service-gallery-body">
+          <h3>Gifts & Baskets</h3>
+          <p>Thoughtful hampers and curated gift selections</p>
+          <div class="service-book-hint" style="margin-top:8px;font-size:0.8rem;font-weight:700;color:#fff;">
+  <i class="fa-solid fa-calendar-check"></i> Click to Book
+</div>
+        </div>
+      </a>
+
+      <a href="index.html#book-service=Flowers%20%26%20Bouquets" class="service-gallery-card reveal" style="display:block;text-decoration:none;color:inherit;">
+        <img src="images/flowers.jpg" alt="Flowers" />
+        <div class="service-gallery-body">
+          <h3>Flowers & Bouquets</h3>
+          <p>Fresh arrangements for events and gifting</p>
+          <div class="service-book-hint" style="margin-top:8px;font-size:0.8rem;font-weight:700;color:#fff;">
+  <i class="fa-solid fa-calendar-check"></i> Click to Book
+</div>
+        </div>
+      </a>
+
+      <a href="index.html#book-service=Private%20%26%20Corporate" class="service-gallery-card reveal" style="display:block;text-decoration:none;color:inherit;">
+        <img src="images/coporate.jpg" alt="Corporate services" />
+        <div class="service-gallery-body">
+          <h3>Private & Corporate</h3>
+          <p>Tailored solutions for business and personal events</p>
+          <div class="service-book-hint" style="margin-top:8px;font-size:0.8rem;font-weight:700;color:#fff;">
+  <i class="fa-solid fa-calendar-check"></i> Click to Book
+</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
 
   <!-- Main Gallery Grid -->
-  <section class="gallery-section" style="background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);">
+  <section class="gallery-section" style="background: linear-gradient(180deg, var(--bg-2), var(--bg));">
     <div class="container">
       <div class="section-head reveal">
         <div class="eyebrow">Moments Captured</div>
@@ -1078,80 +994,80 @@
       </div>
 
       <div class="gallery-grid">
-        <div class="gallery-item large reveal" onclick="openLightbox('https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1200&q=80', 'Restaurant Atmosphere')">
-          <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1200&q=80" alt="Restaurant atmosphere" />
+        <div class="gallery-item large reveal" onclick="openLightbox('images/atmost.jpg', 'Restaurant Atmosphere')">
+          <img src="images/atmost.jpg" alt="Restaurant atmosphere" />
           <div class="gallery-overlay">
             <h4>Restaurant Atmosphere</h4>
             <p>Warm, elegant dining experience</p>
           </div>
         </div>
 
-        <div class="gallery-item reveal" onclick="openLightbox('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=80', 'Gourmet Plating')">
-          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=80" alt="Gourmet plating" />
+        <div class="gallery-item reveal" onclick="openLightbox('images/art.jpg')">
+          <img src="images/art.jpg" alt="Gourmet plating" />
           <div class="gallery-overlay">
             <h4>Gourmet Plating</h4>
             <p>Art on a plate</p>
           </div>
         </div>
 
-        <div class="gallery-item reveal" onclick="openLightbox('https://images.unsplash.com/photo-1464306076886-da185f6a9d05?auto=format&fit=crop&w=900&q=80', 'Fresh Ingredients')">
-          <img src="https://images.unsplash.com/photo-1464306076886-da185f6a9d05?auto=format&fit=crop&w=900&q=80" alt="Fresh ingredients" />
+        <div class="gallery-item reveal" onclick="openLightbox('images/fresh.jpg', 'Fresh Ingredients')">
+          <img src="images/fresh.jpg" alt="Fresh ingredients" />
           <div class="gallery-overlay">
             <h4>Fresh Ingredients</h4>
             <p>Quality in every dish</p>
           </div>
         </div>
 
-        <div class="gallery-item reveal" onclick="openLightbox('https://images.unsplash.com/photo-1517244683847-7456b63c5969?auto=format&fit=crop&w=900&q=80', 'Event Setup')">
-          <img src="https://images.unsplash.com/photo-1517244683847-7456b63c5969?auto=format&fit=crop&w=900&q=80" alt="Event setup" />
+        <div class="gallery-item reveal" onclick="openLightbox('images/events.jpg', 'Event Setup')">
+          <img src="images/events.jpg" alt="Event setup" />
           <div class="gallery-overlay">
             <h4>Event Setup</h4>
             <p>Memorable celebrations</p>
           </div>
         </div>
 
-        <div class="gallery-item reveal" onclick="openLightbox('images/dining.png', 'Dining Experience')">
-          <img src="images/dining.png" alt="Dining experience" />
+        <div class="gallery-item reveal" onclick="openLightbox('images/coporate.jpg', 'Dining Experience')">
+          <img src="images/coporate.jpg" alt="Dining experience" />
           <div class="gallery-overlay">
             <h4>Dining Experience</h4>
             <p>Every meal matters</p>
           </div>
         </div>
 
-        <div class="gallery-item tall reveal" onclick="openLightbox('https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1000&q=80', 'Elegant Interior')">
-          <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1000&q=80" alt="Elegant interior" />
+        <div class="gallery-item tall reveal" onclick="openLightbox('images/outside.jpg', 'Elegant Interior')">
+          <img src="images/outside.jpg" alt="Elegant interior" />
           <div class="gallery-overlay">
-            <h4>Elegant Interior</h4>
+            <h4>Elegant Exterior</h4>
             <p>Stylish hospitality atmosphere</p>
           </div>
         </div>
 
-        <div class="gallery-item reveal" onclick="openLightbox('https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=900&q=80', 'Beautiful Plating')">
-          <img src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=900&q=80" alt="Beautiful plating" />
+        <div class="gallery-item reveal" onclick="openLightbox('images/beautifil.jpg', 'Beautiful Plating')">
+          <img src="images/beautifil.jpg" alt="Beautiful plating" />
           <div class="gallery-overlay">
             <h4>Beautiful Plating</h4>
             <p>Attention to detail</p>
           </div>
         </div>
 
-        <div class="gallery-item reveal" onclick="openLightbox('https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=900&q=80', 'Coffee & Breakfast')">
-          <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=900&q=80" alt="Coffee and breakfast" />
+        <div class="gallery-item reveal" onclick="openLightbox('images/breakfast.jpg', 'Coffee & Breakfast')">
+          <img src="images/breakfast.jpg" alt="Coffee and breakfast" />
           <div class="gallery-overlay">
             <h4>Coffee & Breakfast</h4>
             <p>Perfect starts</p>
           </div>
         </div>
 
-        <div class="gallery-item reveal" onclick="openLightbox('images/afro.png', 'African Cuisine')">
-          <img src="images/afro.png" alt="African cuisine" />
+        <div class="gallery-item reveal" onclick="openLightbox('images/african.jpg', 'African Cuisine')">
+          <img src="images/african.jpg" alt="African cuisine" />
           <div class="gallery-overlay">
             <h4>African Cuisine</h4>
             <p>Traditional flavours</p>
           </div>
         </div>
 
-        <div class="gallery-item reveal" onclick="openLightbox('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80', 'Fine Dining')">
-          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80" alt="Fine dining" />
+        <div class="gallery-item reveal" onclick="openLightbox('images/finedine.jpg', 'Fine Dining')">
+          <img src="images/finedine.jpg" alt="Fine dining" />
           <div class="gallery-overlay">
             <h4>Fine Dining</h4>
             <p>Exquisite experiences</p>
@@ -1172,7 +1088,7 @@
 
       <div class="food-grid">
         <div class="food-item glass reveal">
-          <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=900&q=80" alt="Breakfast" />
+          <img src="images/newbreak.jpg" alt="Breakfast" />
           <div class="food-item-body">
             <h4>Breakfasts</h4>
             <p>Hearty morning plates</p>
@@ -1180,7 +1096,7 @@
         </div>
 
         <div class="food-item glass reveal">
-          <img src="https://images.unsplash.com/photo-1502741338009-cac2772e18bc?auto=format&fit=crop&w=900&q=80" alt="Smoothies" />
+          <img src="images/newsmooth.jpg" alt="Smoothies" />
           <div class="food-item-body">
             <h4>Smoothies</h4>
             <p>Fresh fruit blends</p>
@@ -1196,7 +1112,7 @@
         </div>
 
         <div class="food-item glass reveal">
-          <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=900&q=80" alt="Lunch" />
+          <img src="images/dinner.jpg" alt="Lunch" />
           <div class="food-item-body">
             <h4>Lunches</h4>
             <p>Midday favourites</p>
@@ -1204,7 +1120,7 @@
         </div>
 
         <div class="food-item glass reveal">
-          <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=900&q=80" alt="Dinner" />
+          <img src="images/lunchnew.jpg" alt="Dinner" />
           <div class="food-item-body">
             <h4>Dinners</h4>
             <p>Evening indulgence</p>
@@ -1212,7 +1128,7 @@
         </div>
 
         <div class="food-item glass reveal">
-          <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=900&q=80" alt="Traditional food" />
+          <img src="images/african.jpg" alt="Traditional food" />
           <div class="food-item-body">
             <h4>Traditional Food</h4>
             <p>Local comfort</p>
@@ -1228,7 +1144,7 @@
         </div>
 
         <div class="food-item glass reveal">
-          <img src="https://images.unsplash.com/photo-1546833998-877b37c2e5c6?auto=format&fit=crop&w=900&q=80" alt="Steak" />
+          <img src="images/steak.jpg" alt="Steak" />
           <div class="food-item-body">
             <h4>Sirloin Steak</h4>
             <p>Premium cuts</p>
@@ -1273,31 +1189,31 @@
       </div>
 
       <div class="socials-grid reveal">
-        <a href="https://wa.me/27764021070" target="_blank" class="social-card glass whatsapp">
+        <a href="https://wa.me/27764021070" target="_blank" class="social-card whatsapp">
           <i class="fa-brands fa-whatsapp"></i>
           <h4>WhatsApp</h4>
           <span>+27 76 402 1070</span>
         </a>
 
-        <a href="https://www.instagram.com/thechefatepsom/" target="_blank" class="social-card glass instagram">
+        <a href="https://www.instagram.com/thechefatepsom/" target="_blank" class="social-card instagram">
           <i class="fa-brands fa-instagram"></i>
           <h4>Instagram</h4>
           <span>@thechefatepsom</span>
         </a>
 
-        <a href="https://www.tiktok.com/@the.chef.on.epsom" target="_blank" class="social-card glass tiktok">
+        <a href="https://www.tiktok.com/@the.chef.on.epsom" target="_blank" class="social-card tiktok">
           <i class="fa-brands fa-tiktok"></i>
           <h4>TikTok</h4>
           <span>@the.chef.on.epsom</span>
         </a>
 
-        <a href="mailto:thechefatepsom12@gmail.com" class="social-card glass email">
+        <a href="mailto:thechefatepsom12@gmail.com" class="social-card email">
           <i class="fa-solid fa-envelope"></i>
           <h4>Email</h4>
           <span>thechefatepsom12@gmail.com</span>
         </a>
 
-        <a href="https://www.ubereats.com/za/store/the-chef-on-epsom/mR7Wus4VUza6bVr_Cr2jdg?diningMode=PICKUP&utm_campaign=CM2508147-search-free-nonbrand-google-pas_e_all_acq_Global&utm_medium=search-free-nonbrand&utm_source=google-pas" target="_blank" class="social-card glass uber">
+        <a href="https://www.ubereats.com/za/store/the-chef-on-epsom/mR7Wus4VUza6bVr_Cr2jdg?diningMode=PICKUP&utm_campaign=CM2508147-search-free-nonbrand-google-pas_e_all_acq_Global&utm_medium=search-free-nonbrand&utm_source=google-pas" target="_blank" class="social-card uber">
           <i class="fa-solid fa-bag-shopping"></i>
           <h4>Uber Eats</h4>
           <span>Order Online</span>
@@ -1354,16 +1270,79 @@
       </div>
 
       <div class="footer-bottom">
-        <span>© 2026 The Chef on Epsom. All rights reserved.</span>
-        <span>Black • White • Gold • Red</span>
+        <span>&copy; 2026 The Chef on Epsom. All rights reserved.</span>
+        <span>Black &bull; White &bull; Gold</span>
       </div>
     </div>
   </footer>
 
-  <!-- WhatsApp Float -->
-  <a class="whatsapp-float" href="https://wa.me/27764021070" target="_blank" aria-label="Chat on WhatsApp">
-    <i class="fa-brands fa-whatsapp"></i>
-  </a>
+  <div id="orderPopup" style="
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+  background:rgba(0,0,0,0.6);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+">
+
+  <div style="
+    background:#fff;
+    padding:25px;
+    border-radius:14px;
+    width:90%;
+    max-width:420px;
+    text-align:center;
+    position:relative;
+  ">
+
+    <!-- Close Button -->
+    <span onclick="closeOrderPopup()" style="
+      position:absolute;
+      top:10px;
+      right:15px;
+      font-size:20px;
+      cursor:pointer;
+    ">&times;</span>
+
+    <h3 style="margin-bottom:20px;">Choose your platform</h3>
+
+    <div style="display:flex;gap:15px;justify-content:center;flex-wrap:wrap;">
+
+      <!-- Uber Eats -->
+      <a href="https://www.ubereats.com/za/store/the-chef-on-epsom/mR7Wus4VUza6bVr_Cr2jdg?diningMode=PICKUP&utm_campaign=CM2508147-search-free-nonbrand-google-pas_e_all_acq_Global&utm_medium=search-free-nonbrand&utm_source=google-pas"
+         target="_blank"
+         style="text-decoration:none;width:140px;">
+
+        <div style="border:1px solid #eee;border-radius:10px;padding:15px;">
+          <img src="images/ubber.png"
+               style="width:70px;height:70px;aspect-ratio:1/1;object-fit:contain;margin-bottom:8px;">
+          <div style="font-size:14px;font-weight:600;">Uber Eats</div>
+        </div>
+      </a>
+
+      <!-- Mr D -->
+      <a href="https://www.mrd.com/delivery/restaurant/the-chef-on-epsom-stirling/30291"
+         target="_blank"
+         style="text-decoration:none;width:140px;">
+
+        <div style="border:1px solid #eee;border-radius:10px;padding:15px;">
+          <img src="images/mr_d_food_black.png"
+               style="width:70px;height:70px;aspect-ratio:1/1;object-fit:contain;margin-bottom:8px;">
+          <div style="font-size:14px;font-weight:600;">Mr D</div>
+        </div>
+      </a>
+
+    </div>
+
+  </div>
+</div>
+
+<a href="index.html#menu" class="cart-float" aria-label="Go to menu">
+  <i class="fa-solid fa-basket-shopping"></i>
+  <span class="cart-count" id="cartCount" style="display: none;">0</span>
+</a>
 
   <!-- Lightbox -->
   <div class="lightbox" id="lightbox" onclick="closeLightbox()">
@@ -1432,6 +1411,24 @@
       if (e.key === "Escape") closeLightbox();
     });
   </script>
+
+  <script>
+function openOrderPopup() {
+  document.getElementById("orderPopup").style.display = "flex";
+}
+
+function closeOrderPopup() {
+  document.getElementById("orderPopup").style.display = "none";
+}
+
+// Close when clicking outside
+window.onclick = function(e) {
+  const popup = document.getElementById("orderPopup");
+  if (e.target === popup) {
+    popup.style.display = "none";
+  }
+}
+</script>
 
 </body>
 </html>

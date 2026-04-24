@@ -1010,6 +1010,122 @@
     grid-template-columns: 1fr;
   }
 }
+
+
+/* SERVICE CARD HINT */
+.service-book-hint {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.7);
+  font-weight: 600;
+  transition: var(--ease);
+}
+.service-card:hover .service-book-hint {
+  color: var(--white);
+}
+
+/* SERVICE MODAL — BLACK & WHITE */
+.service-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 2700;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--ease);
+}
+.service-overlay.show { opacity: 1; visibility: visible; }
+
+.service-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  width: min(90vw, 560px);
+  max-height: 90vh;
+  background: var(--white);
+  border-radius: 24px;
+  box-shadow: 0 25px 80px rgba(0,0,0,0.3);
+  z-index: 2800;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+.service-modal.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.service-modal-header {
+  padding: 24px;
+  background: var(--black);
+  color: var(--white);
+  border-radius: 24px 24px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.service-modal-header h3 { margin: 0; font-size: 1.2rem; font-weight: 600; }
+
+.service-modal-close {
+  width: 36px; height: 36px; border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.1);
+  color: var(--white); cursor: pointer; font-size: 1.1rem;
+  display: grid; place-items: center; transition: var(--ease);
+}
+.service-modal-close:hover {
+  background: rgba(255,255,255,0.2);
+  border-color: rgba(255,255,255,0.5);
+}
+
+.service-modal-body {
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.service-selected {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 18px;
+  background: var(--bg-2);
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  margin-bottom: 20px;
+  font-weight: 700; font-size: 1.05rem; color: var(--text);
+}
+.service-selected i { color: var(--black); font-size: 1.2rem; }
+
+.service-form { display: grid; gap: 16px; }
+
+.service-submit-btn {
+  width: 100%; padding: 16px; border: none; border-radius: 12px;
+  background: var(--black); color: var(--white);
+  font-weight: 700; font-size: 1rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  margin-top: 4px; transition: var(--ease);
+}
+.service-submit-btn:hover {
+  transform: translateY(-2px);
+  background: var(--charcoal);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.service-form .form-note {
+  text-align: center; color: var(--muted); font-size: 0.8rem; margin-top: -4px;
+}
+
+/* Dynamic form sections */
+.service-form-section { display: none; }
+.service-form-section.active { display: grid; gap: 16px; }
+
+@media (max-width: 640px) {
+  .service-modal { width: 95vw; max-height: 85vh; border-radius: 20px; }
+  .service-modal-header { border-radius: 20px 20px 0 0; padding: 20px; }
+  .service-modal-body { padding: 18px; }
+}
   </style>
 </head>
 <body>
@@ -1030,15 +1146,15 @@
         <a href="#about">About</a>
         <a href="#services">Services</a>
         <a href="#menu">Menu</a>
-        <a href="#gallery">Gallery</a>
+        <a href="gallery.html">Gallery</a>
         <a href="#hours">Hours</a>
         <a href="#reviews">Reviews</a>
         <a href="#contact">Contact</a>
       </div>
 
-      <a href="https://www.ubereats.com/za/store/the-chef-on-epsom/mR7Wus4VUza6bVr_Cr2jdg?diningMode=PICKUP&utm_campaign=CM2508147-search-free-nonbrand-google-pas_e_all_acq_Global&utm_medium=search-free-nonbrand&utm_source=google-pas" target="_blank" class="btn btn-red desktop-cta">
-        <i class="fa-solid fa-bag-shopping"></i> Order Online
-      </a>
+     <a href="javascript:void(0);" onclick="openOrderPopup()" class="btn btn-red desktop-cta">
+  <i class="fa-solid fa-bag-shopping"></i> Order Online
+</a>
 
       <button class="menu-toggle" id="openMenu" aria-label="Open menu">
         <i class="fa-solid fa-bars"></i>
@@ -1069,11 +1185,11 @@
       <a href="#about">About</a>
       <a href="#services">Services</a>
       <a href="#menu">Menu</a>
-      <a href="#gallery">Gallery</a>
+      <a href="gallery.html">Gallery</a>
       <a href="#hours">Hours</a>
       <a href="#reviews">Reviews</a>
       <a href="#contact">Contact</a>
-      <a href="https://www.ubereats.com/za/store/the-chef-on-epsom/mR7Wus4VUza6bVr_Cr2jdg?diningMode=PICKUP&utm_campaign=CM2508147-search-free-nonbrand-google-pas_e_all_acq_Global&utm_medium=search-free-nonbrand&utm_source=google-pas" target="_blank">Order Online</a>
+      <a href="javascript:void(0);" onclick="openOrderPopup()">Order Online</a>
     </div>
 
     <div class="mobile-socials">
@@ -1188,7 +1304,9 @@
   </p>
   <div class="hero-actions">
     <a href="#menu" class="btn btn-gold"><i class="fa-solid fa-utensils"></i> See Menu</a>
-    <a href="https://www.ubereats.com/za/store/the-chef-on-epsom/mR7Wus4VUza6bVr_Cr2jdg?diningMode=PICKUP&utm_campaign=CM2508147-search-free-nonbrand-google-pas_e_all_acq_Global&utm_medium=search-free-nonbrand&utm_source=google-pas" target="_blank" class="btn btn-red"><i class="fa-solid fa-bag-shopping"></i> Order Online</a>
+  <a href="javascript:void(0);" onclick="openOrderPopup()" class="btn btn-red">
+  <i class="fa-solid fa-bag-shopping"></i> Order Online
+</a>  
   </div>
   <div class="hero-tags">
     <div class="hero-tag">Breakfast</div>
@@ -1270,7 +1388,7 @@
     <div class="container split">
       <div class="mosaic reveal fade-left">
         <div class="img-card tall">
-          <img src="images/unnamed-7.webp" alt="Elegant restaurant interior placeholder" />
+          <img src="images/locatopn.jpg" alt="Elegant restaurant interior placeholder" />
           <div class="img-overlay"><strong>Stylish hospitality & dining atmosphere</strong></div>
         </div>
         <div style="display:grid; gap:18px;">
@@ -1320,94 +1438,102 @@
   </section>
 
   <section class="section services-bg" id="services">
-    <div class="container">
-      <div class="section-head reveal">
-        <div class="eyebrow">Full Services</div>
-        <h2>Much more than a restaurant</h2>
-        <p>
-          The Chef on Epsom offers a complete hospitality experience: food, décor, gifting,
-          events, cakes, flowers and venue solutions for private and corporate clients.
-        </p>
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Full Services</div>
+      <h2>Much more than a restaurant</h2>
+      <p>
+        The Chef on Epsom offers a complete hospitality experience: food, décor, gifting,
+        events, cakes, flowers and venue solutions for private and corporate clients.
+      </p>
+    </div>
+
+    <div class="services-grid">
+
+      <div class="service-card reveal" onclick="openServiceModal('Events Décor')" style="cursor: pointer;">
+        <img src="images/events.jpg" alt="Events decor" />
+        <div class="service-body">
+          <h3>Events Décor</h3>
+          <p>Elegant styling for birthdays, weddings and private functions.</p>
+          <div class="service-book-hint"><i class="fa-solid fa-calendar-check"></i> Click to Book</div>
+        </div>
       </div>
 
-      <div class="services-grid">
-
-  <div class="service-card reveal">
-    <img src="images/service-decor.jpg" alt="Events decor" />
-    <div class="service-body">
-      <h3>Events Décor</h3>
-      <p>Elegant styling for birthdays, weddings and private functions.</p>
-    </div>
-  </div>
-
-  <div class="service-card reveal">
-    <img src="images/service-venue.jpg" alt="Venue hire" />
-    <div class="service-body">
-      <h3>Venue Hire</h3>
-      <p>Host intimate events in a warm, stylish setting.</p>
-    </div>
-  </div>
-
-  <div class="service-card reveal">
-    <img src="images/service-accessories.jpg" alt="Decor accessories" />
-    <div class="service-body">
-      <h3>Décor Accessories</h3>
-      <p>Beautiful finishing touches for your event setup.</p>
-    </div>
-  </div>
-
-  <div class="service-card reveal">
-    <img src="images/service-catering.jpg" alt="Catering" />
-    <div class="service-body">
-      <h3>Catering</h3>
-      <p>Corporate and private catering with premium presentation.</p>
-    </div>
-  </div>
-
-  <div class="service-card reveal">
-    <img src="images/service-cakes.jpg" alt="Cakes and bakes" />
-    <div class="service-body">
-      <h3>Cakes & Bakes</h3>
-      <p>Custom cakes, scones and sweet treats for every occasion.</p>
-    </div>
-  </div>
-
-  <div class="service-card reveal">
-    <img src="images/unnamed.webp" alt="Cooking classes" />
-    <div class="service-body">
-      <h3>Cooking Classes</h3>
-      <p>Fun, social and memorable cooking experiences.</p>
-    </div>
-  </div>
-
-  <div class="service-card reveal">
-    <img src="images/service-gifts.jpg" alt="Gift baskets" />
-    <div class="service-body">
-      <h3>Gifts & Baskets</h3>
-      <p>Thoughtful hampers and curated gift selections.</p>
-    </div>
-  </div>
-
-  <div class="service-card reveal">
-    <img src="images/service-flowers.jpg" alt="Flowers" />
-    <div class="service-body">
-      <h3>Flowers & Bouquets</h3>
-      <p>Fresh arrangements for events and gifting.</p>
-    </div>
-  </div>
-
-  <div class="service-card reveal">
-    <img src="images/service-corporate.jpg" alt="Corporate services" />
-    <div class="service-body">
-      <h3>Private & Corporate</h3>
-      <p>Tailored solutions for business and personal events.</p>
-    </div>
-  </div>
-
-</div>
+      <div class="service-card reveal" onclick="openServiceModal('Venue Hire')" style="cursor: pointer;">
+        <img src="images/service-venue.jpg" alt="Venue hire" />
+        <div class="service-body">
+          <h3>Venue Hire</h3>
+          <p>Host intimate events in a warm, stylish setting.</p>
+          <div class="service-book-hint"><i class="fa-solid fa-calendar-check"></i> Click to Book</div>
+        </div>
       </div>
+
+      <div class="service-card reveal" onclick="openServiceModal('Décor Accessories')" style="cursor: pointer;">
+        <img src="images/accsorries.jpeg" alt="Decor accessories" />
+        <div class="service-body">
+          <h3>Décor Accessories</h3>
+          <p>Beautiful finishing touches for your event setup.</p>
+          <div class="service-book-hint"><i class="fa-solid fa-calendar-check"></i> Click to Book</div>
+        </div>
+      </div>
+
+      <div class="service-card reveal" onclick="openServiceModal('Catering')" style="cursor: pointer;">
+        <img src="images/catering.jpg" alt="Catering" />
+        <div class="service-body">
+          <h3>Catering</h3>
+          <p>Corporate and private catering with premium presentation.</p>
+          <div class="service-book-hint"><i class="fa-solid fa-calendar-check"></i> Click to Book</div>
+        </div>
+      </div>
+
+      <div class="service-card reveal" onclick="openServiceModal('Cakes & Bakes')" style="cursor: pointer;">
+        <img src="images/service-cakes.jpg" alt="Cakes and bakes" />
+        <div class="service-body">
+          <h3>Cakes & Bakes</h3>
+          <p>Custom cakes, scones and sweet treats for every occasion.</p>
+          <div class="service-book-hint"><i class="fa-solid fa-calendar-check"></i> Click to Book</div>
+        </div>
+      </div>
+
+      <div class="service-card reveal" onclick="openServiceModal('Cooking Classes')" style="cursor: pointer;">
+        <img src="images/unnamed.webp" alt="Cooking classes" />
+        <div class="service-body">
+          <h3>Cooking Classes</h3>
+          <p>Fun, social and memorable cooking experiences.</p>
+          <div class="service-book-hint"><i class="fa-solid fa-calendar-check"></i> Click to Book</div>
+        </div>
+      </div>
+
+      <div class="service-card reveal" onclick="openServiceModal('Gifts & Baskets')" style="cursor: pointer;">
+        <img src="images/birthday.jpeg" alt="Gift baskets" />
+        <div class="service-body">
+          <h3>Gifts & Baskets</h3>
+          <p>Thoughtful hampers and curated gift selections.</p>
+          <div class="service-book-hint"><i class="fa-solid fa-calendar-check"></i> Click to Book</div>
+        </div>
+      </div>
+
+      <div class="service-card reveal" onclick="openServiceModal('Flowers & Bouquets')" style="cursor: pointer;">
+        <img src="images/flowers.jpg" alt="Flowers" />
+        <div class="service-body">
+          <h3>Flowers & Bouquets</h3>
+          <p>Fresh arrangements for events and gifting.</p>
+          <div class="service-book-hint"><i class="fa-solid fa-calendar-check"></i> Click to Book</div>
+        </div>
+      </div>
+
+      <div class="service-card reveal" onclick="openServiceModal('Private & Corporate')" style="cursor: pointer;">
+        <img src="images/coporate.jpg" alt="Corporate services" />
+        <div class="service-body">
+          <h3>Private & Corporate</h3>
+          <p>Tailored solutions for business and personal events.</p>
+          <div class="service-book-hint"><i class="fa-solid fa-calendar-check"></i> Click to Book</div>
+        </div>
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
 
   <section class="section meals-showcase">
   <div class="meals-showcase-bg"></div>
@@ -1521,10 +1647,12 @@
     </div>
 
     <div class="menu-featured-cta reveal" style="margin-top: 40px;">
-      <a href="https://www.ubereats.com/za/store/the-chef-on-epsom/mR7Wus4VUza6bVr_Cr2jdg" target="_blank" class="btn btn-outline">
-        <i class="fa-solid fa-bag-shopping"></i> Also on Uber Eats
-      </a>
-    </div>
+
+  <a href="#" onclick="event.preventDefault(); openOrderPopup();" class="btn btn-outline">
+    <i class="fa-solid fa-bag-shopping"></i> Also on Uber Eats or Mr D
+  </a>
+
+</div>
   </div>
 </section>
 
@@ -1764,10 +1892,10 @@
 
         <div class="contact-images reveal fade-right">
           <div class="img-card">
-            <img src="images/unnamed-3.webp" alt="Dining room placeholder" />
+            <img src="images/herehe.jpg" alt="Dining room placeholder" />
           </div>
           <div class="img-card">
-            <img src="images/unnamed-5.webp" alt="Fresh meal placeholder" />
+            <img src="images/longone.jpg" alt="Fresh meal placeholder" />
           </div>
           
         </div>
@@ -1830,6 +1958,69 @@
 </div>
   </div>
 </footer>
+
+<div id="orderPopup" style="
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+  background:rgba(0,0,0,0.6);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+">
+
+  <div style="
+    background:#fff;
+    padding:25px;
+    border-radius:14px;
+    width:90%;
+    max-width:420px;
+    text-align:center;
+    position:relative;
+  ">
+
+    <!-- Close Button -->
+    <span onclick="closeOrderPopup()" style="
+      position:absolute;
+      top:10px;
+      right:15px;
+      font-size:20px;
+      cursor:pointer;
+    ">&times;</span>
+
+    <h3 style="margin-bottom:20px;">Choose your platform</h3>
+
+    <div style="display:flex;gap:15px;justify-content:center;flex-wrap:wrap;">
+
+      <!-- Uber Eats -->
+      <a href="https://www.ubereats.com/za/store/the-chef-on-epsom/mR7Wus4VUza6bVr_Cr2jdg?diningMode=PICKUP&utm_campaign=CM2508147-search-free-nonbrand-google-pas_e_all_acq_Global&utm_medium=search-free-nonbrand&utm_source=google-pas"
+         target="_blank"
+         style="text-decoration:none;width:140px;">
+
+        <div style="border:1px solid #eee;border-radius:10px;padding:15px;">
+          <img src="images/ubber.png"
+               style="width:70px;height:70px;aspect-ratio:1/1;object-fit:contain;margin-bottom:8px;">
+          <div style="font-size:14px;font-weight:600;">Uber Eats</div>
+        </div>
+      </a>
+
+      <!-- Mr D -->
+      <a href="https://www.mrd.com/delivery/restaurant/the-chef-on-epsom-stirling/30291"
+         target="_blank"
+         style="text-decoration:none;width:140px;">
+
+        <div style="border:1px solid #eee;border-radius:10px;padding:15px;">
+          <img src="images/mr_d_food_black.png"
+               style="width:70px;height:70px;aspect-ratio:1/1;object-fit:contain;margin-bottom:8px;">
+          <div style="font-size:14px;font-weight:600;">Mr D</div>
+        </div>
+      </a>
+
+    </div>
+
+  </div>
+</div>
 
 
 <!-- CHECKOUT MODAL -->
@@ -1896,7 +2087,256 @@
   </div>
 </div>
 
+  <!-- SERVICE BOOKING MODAL -->
+<div class="service-overlay" id="serviceOverlay"></div>
+<div class="service-modal" id="serviceModal">
+  <div class="service-modal-header">
+    <h3><i class="fa-solid fa-calendar-check"></i> Book a Service</h3>
+    <button class="service-modal-close" id="serviceModalClose"><i class="fa-solid fa-xmark"></i></button>
+  </div>
   
+  <div class="service-modal-body">
+    <div class="service-selected">
+      <i class="fa-solid fa-briefcase"></i>
+      <span id="selectedServiceName">Service Name</span>
+    </div>
+    
+    <form class="service-form" id="serviceForm">
+      
+      <!-- SHARED FIELDS -->
+      <div class="form-group">
+        <label for="svcName">Your Name *</label>
+        <input type="text" id="svcName" placeholder="e.g. John Smith" required>
+      </div>
+      
+      <div class="form-row">
+        <div class="form-group">
+          <label for="svcPhone">Phone Number *</label>
+          <input type="tel" id="svcPhone" placeholder="e.g. 076 402 1070" required>
+        </div>
+        <div class="form-group">
+          <label for="svcEmail">Email</label>
+          <input type="email" id="svcEmail" placeholder="e.g. john@email.com">
+        </div>
+      </div>
+
+      <!-- EVENT SERVICES: Events Décor, Venue Hire, Décor Accessories, Catering, Private & Corporate -->
+      <div class="service-form-section" data-services="Events Décor,Venue Hire,Décor Accessories,Catering,Private & Corporate">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="evtDate">Event Date *</label>
+            <input type="date" id="evtDate" required>
+          </div>
+          <div class="form-group">
+            <label for="evtGuests">Number of Guests *</label>
+            <input type="number" id="evtGuests" placeholder="e.g. 50" min="1" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="evtType">Event Type *</label>
+          <select id="evtType" required>
+            <option value="">Select type</option>
+            <option value="Birthday">Birthday</option>
+            <option value="Wedding">Wedding</option>
+            <option value="Corporate Function">Corporate Function</option>
+            <option value="Private Function">Private Function</option>
+            <option value="Baby Shower">Baby Shower</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="evtVenue">Venue / Location</label>
+          <input type="text" id="evtVenue" placeholder="Where is the event happening?">
+        </div>
+        <div class="form-group">
+          <label for="evtNotes">Event Details & Special Requests</label>
+          <textarea id="evtNotes" rows="3" placeholder="Theme, colour scheme, dietary requirements, setup preferences..."></textarea>
+        </div>
+      </div>
+
+      <!-- CAKES & BAKES -->
+      <div class="service-form-section" data-services="Cakes & Bakes">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cakeOccasion">Occasion *</label>
+            <select id="cakeOccasion" required>
+              <option value="">Select occasion</option>
+              <option value="Birthday">Birthday</option>
+              <option value="Wedding">Wedding</option>
+              <option value="Anniversary">Anniversary</option>
+              <option value="Corporate">Corporate</option>
+              <option value="Baby Shower">Baby Shower</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="cakeDate">Pickup / Delivery Date *</label>
+            <input type="date" id="cakeDate" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cakeFlavour">Flavour *</label>
+            <select id="cakeFlavour" required>
+              <option value="">Select flavour</option>
+              <option value="Vanilla">Vanilla</option>
+              <option value="Chocolate">Chocolate</option>
+              <option value="Red Velvet">Red Velvet</option>
+              <option value="Carrot">Carrot</option>
+              <option value="Lemon">Lemon</option>
+              <option value="Custom / Other">Custom / Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="cakeSize">Size *</label>
+            <select id="cakeSize" required>
+              <option value="">Select size</option>
+              <option value="Small (6 inch)">Small (6")</option>
+              <option value="Medium (8 inch)">Medium (8")</option>
+              <option value="Large (10 inch)">Large (10")</option>
+              <option value="Tiered / Custom">Tiered / Custom</option>
+              <option value="Cupcakes">Cupcakes</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="cakeMessage">Message on Cake</label>
+          <input type="text" id="cakeMessage" placeholder="e.g. Happy Birthday Mom!">
+        </div>
+        <div class="form-group">
+          <label for="cakeNotes">Special Instructions</label>
+          <textarea id="cakeNotes" rows="2" placeholder="Allergies, dietary requirements, design ideas, colours..."></textarea>
+        </div>
+      </div>
+
+      <!-- COOKING CLASSES -->
+      <div class="service-form-section" data-services="Cooking Classes">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="classDate">Preferred Date *</label>
+            <input type="date" id="classDate" required>
+          </div>
+          <div class="form-group">
+            <label for="classPeople">Number of Participants *</label>
+            <input type="number" id="classPeople" placeholder="e.g. 4" min="1" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="classType">Class Type *</label>
+          <select id="classType" required>
+            <option value="">Select type</option>
+            <option value="Beginner Basics">Beginner Basics</option>
+            <option value="Intermediate Skills">Intermediate Skills</option>
+            <option value="Team Building">Team Building</option>
+            <option value="Private Group">Private Group</option>
+            <option value="Date Night">Date Night</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="classDiet">Dietary Requirements / Allergies</label>
+          <input type="text" id="classDiet" placeholder="e.g. Halal, vegetarian, nut allergy">
+        </div>
+        <div class="form-group">
+          <label for="classNotes">Additional Notes</label>
+          <textarea id="classNotes" rows="2" placeholder="Any specific dishes you'd like to learn? Experience level?"></textarea>
+        </div>
+      </div>
+
+      <!-- GIFTS & BASKETS -->
+      <div class="service-form-section" data-services="Gifts & Baskets">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="giftOccasion">Occasion *</label>
+            <select id="giftOccasion" required>
+              <option value="">Select occasion</option>
+              <option value="Birthday">Birthday</option>
+              <option value="Thank You">Thank You</option>
+              <option value="Get Well">Get Well</option>
+              <option value="Corporate">Corporate</option>
+              <option value="New Baby">New Baby</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="giftBudget">Budget Range *</label>
+            <select id="giftBudget" required>
+              <option value="">Select budget</option>
+              <option value="R200 - R500">R200 – R500</option>
+              <option value="R500 - R1000">R500 – R1 000</option>
+              <option value="R1000 - R2000">R1 000 – R2 000</option>
+              <option value="R2000+">R2 000+</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="giftRecipient">Recipient Name</label>
+          <input type="text" id="giftRecipient" placeholder="Who is this gift for?">
+        </div>
+        <div class="form-group">
+          <label for="giftMessage">Gift Message</label>
+          <textarea id="giftMessage" rows="2" placeholder="Message to include with the gift..."></textarea>
+        </div>
+        <div class="form-group">
+          <label for="giftDate">Delivery / Pickup Date *</label>
+          <input type="date" id="giftDate" required>
+        </div>
+      </div>
+
+      <!-- FLOWERS & BOUQUETS -->
+      <div class="service-form-section" data-services="Flowers & Bouquets">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="flowerOccasion">Occasion *</label>
+            <select id="flowerOccasion" required>
+              <option value="">Select occasion</option>
+              <option value="Birthday">Birthday</option>
+              <option value="Anniversary">Anniversary</option>
+              <option value="Wedding">Wedding</option>
+              <option value="Sympathy">Sympathy</option>
+              <option value="Congratulations">Congratulations</option>
+              <option value="Just Because">Just Because</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="flowerSize">Bouquet Size *</label>
+            <select id="flowerSize" required>
+              <option value="">Select size</option>
+              <option value="Small">Small</option>
+              <option value="Medium">Medium</option>
+              <option value="Large">Large</option>
+              <option value="Custom Arrangement">Custom Arrangement</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="flowerColour">Colour Preference</label>
+          <select id="flowerColour">
+            <option value="">Select preference</option>
+            <option value="Whites & Creams">Whites & Creams</option>
+            <option value="Pinks & Purples">Pinks & Purples</option>
+            <option value="Reds & Burgundy">Reds & Burgundy</option>
+            <option value="Bright Mixed">Bright Mixed</option>
+            <option value="Pastel Mixed">Pastel Mixed</option>
+            <option value="Surprise Me">Surprise Me</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="flowerMessage">Card Message</label>
+          <textarea id="flowerMessage" rows="2" placeholder="Message to include with the bouquet..."></textarea>
+        </div>
+        <div class="form-group">
+          <label for="flowerDate">Delivery / Pickup Date *</label>
+          <input type="date" id="flowerDate" required>
+        </div>
+      </div>
+
+      <button type="submit" class="service-submit-btn">
+        <i class="fa-brands fa-whatsapp"></i> Send Booking via WhatsApp
+      </button>
+      <small class="form-note">Your request will be sent to The Chef on Epsom via WhatsApp. We'll confirm shortly.</small>
+    </form>
+  </div>
+</div>
 
   <script>
     /* HERO SLIDER */
@@ -2432,7 +2872,132 @@ renderMenu('popular');
 updateCartUI();
 </script>
 
+<script>
+function openOrderPopup() {
+  document.getElementById("orderPopup").style.display = "flex";
+}
 
+function closeOrderPopup() {
+  document.getElementById("orderPopup").style.display = "none";
+}
+
+// Close when clicking outside
+window.onclick = function(e) {
+  const popup = document.getElementById("orderPopup");
+  if (e.target === popup) {
+    popup.style.display = "none";
+  }
+}
+
+/* SERVICE BOOKING MODAL — PERSONALIZED & DEEP-LINKABLE */
+const serviceOverlay = document.getElementById('serviceOverlay');
+const serviceModal = document.getElementById('serviceModal');
+const serviceModalClose = document.getElementById('serviceModalClose');
+const serviceForm = document.getElementById('serviceForm');
+const selectedServiceName = document.getElementById('selectedServiceName');
+const serviceSections = document.querySelectorAll('.service-form-section');
+
+function openServiceModal(serviceName) {
+  selectedServiceName.textContent = serviceName;
+  
+  // Show only the relevant form section
+  serviceSections.forEach(section => {
+    const services = section.dataset.services.split(',');
+    if (services.includes(serviceName)) {
+      section.classList.add('active');
+      // Enable required fields inside active section
+      section.querySelectorAll('input, select, textarea').forEach(el => {
+        if (el.hasAttribute('data-required')) {
+          el.setAttribute('required', '');
+        }
+      });
+    } else {
+      section.classList.remove('active');
+      // Disable required fields inside hidden sections so form validates
+      section.querySelectorAll('[required]').forEach(el => {
+        el.removeAttribute('required');
+        el.setAttribute('data-required', 'true');
+      });
+    }
+  });
+  
+  serviceModal.classList.add('show');
+  serviceOverlay.classList.add('show');
+  document.body.style.overflow = 'hidden';
+  
+  // Update URL hash for shareable links (without jumping)
+  history.replaceState(null, null, '#book-service=' + encodeURIComponent(serviceName));
+}
+
+function closeServiceModal() {
+  serviceModal.classList.remove('show');
+  serviceOverlay.classList.remove('show');
+  document.body.style.overflow = '';
+  // Clean hash
+  history.replaceState(null, null, window.location.pathname + window.location.search);
+}
+
+serviceModalClose.addEventListener('click', closeServiceModal);
+serviceOverlay.addEventListener('click', closeServiceModal);
+
+// Handle form submission
+serviceForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  
+  const service = selectedServiceName.textContent;
+  const name = document.getElementById('svcName').value;
+  const phone = document.getElementById('svcPhone').value;
+  const email = document.getElementById('svcEmail').value;
+  
+  let message = `*New Service Booking*\n\n`;
+  message += `*Service:* ${service}\n`;
+  message += `*Name:* ${name}\n`;
+  message += `*Phone:* ${phone}\n`;
+  if (email) message += `*Email:* ${email}\n`;
+  
+  // Build message based on active section
+  const activeSection = document.querySelector('.service-form-section.active');
+  
+  if (activeSection) {
+    const fields = activeSection.querySelectorAll('input, select, textarea');
+    fields.forEach(field => {
+      if (field.value.trim()) {
+        const label = field.previousElementSibling?.textContent?.replace(' *', '') || field.id;
+        message += `*${label}:* ${field.value}\n`;
+      }
+    });
+  }
+  
+  const encodedMsg = encodeURIComponent(message);
+  window.open(`https://wa.me/27764021070?text=${encodedMsg}`, '_blank');
+  
+  closeServiceModal();
+  serviceForm.reset();
+});
+
+// DEEP LINKING: Auto-open modal from URL hash on page load
+function handleServiceDeepLink() {
+  const hash = window.location.hash;
+  if (hash.startsWith('#book-service=')) {
+    const serviceName = decodeURIComponent(hash.replace('#book-service=', ''));
+    // Small delay to ensure DOM is fully ready and scrolled
+    setTimeout(() => {
+      openServiceModal(serviceName);
+      // Optional: scroll to services section
+      const servicesSection = document.getElementById('services');
+      if (servicesSection) {
+        servicesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 400);
+  }
+}
+
+// Check on load
+handleServiceDeepLink();
+
+// Also check if hash changes while on page
+window.addEventListener('hashchange', handleServiceDeepLink);
+</script>
 
 </body>
 </html>
